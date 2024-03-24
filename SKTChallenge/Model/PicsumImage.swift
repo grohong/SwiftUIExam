@@ -1,0 +1,27 @@
+//
+//  PicsumImage.swift
+//  SKTChallenge
+//
+//  Created by Hong Seong Ho on 3/24/24.
+//
+
+import Foundation
+
+struct PicsumImage: Codable {
+
+    let id: String
+    let author: String
+    let width: Int
+    let height: Int
+    let imageURL: URL
+    let downloadURL: URL
+
+    enum CodingKeys: String, CodingKey {
+        case id
+        case author
+        case width
+        case height
+        case imageURL = "url"
+        case downloadURL = "download_url"
+    }
+}
