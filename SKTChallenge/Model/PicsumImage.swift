@@ -13,15 +13,15 @@ struct PicsumImage: Codable {
     let author: String
     let width: Int
     let height: Int
-    let url: String
-    let downloadURL: String
+    let imageURL: URL
+    let downloadURL: URL
 
     enum CodingKeys: String, CodingKey {
         case id
         case author
         case width
         case height
-        case url
+        case imageURL = "url"
         case downloadURL = "download_url"
     }
 }

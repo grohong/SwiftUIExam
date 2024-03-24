@@ -8,26 +8,19 @@
 
 /* Begin PBXBuildFile section */
 		E4BD747F2BAFF6ED007F8B73 /* SKTChallengeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4BD747E2BAFF6ED007F8B73 /* SKTChallengeApp.swift */; };
-		E4BD74812BAFF6ED007F8B73 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4BD74802BAFF6ED007F8B73 /* ContentView.swift */; };
 		E4BD74832BAFF6ED007F8B73 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E4BD74822BAFF6ED007F8B73 /* Assets.xcassets */; };
 		E4BD74862BAFF6EE007F8B73 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E4BD74852BAFF6EE007F8B73 /* Preview Assets.xcassets */; };
-		E4BD74902BAFF6EE007F8B73 /* SKTChallengeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4BD748F2BAFF6EE007F8B73 /* SKTChallengeTests.swift */; };
-		E4BD749A2BAFF6EE007F8B73 /* SKTChallengeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4BD74992BAFF6EE007F8B73 /* SKTChallengeUITests.swift */; };
-		E4BD749C2BAFF6EE007F8B73 /* SKTChallengeUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4BD749B2BAFF6EE007F8B73 /* SKTChallengeUITestsLaunchTests.swift */; };
 		E4BD74AA2BAFFF6D007F8B73 /* PicsumNetworkProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4BD74A92BAFFF6D007F8B73 /* PicsumNetworkProtocol.swift */; };
 		E4BD74AD2BB00001007F8B73 /* PicsumImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4BD74AC2BB00001007F8B73 /* PicsumImage.swift */; };
 		E4BD74AF2BB00089007F8B73 /* PicksumAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4BD74AE2BB00089007F8B73 /* PicksumAPI.swift */; };
+		E4BD74B32BB0051F007F8B73 /* PhotoListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4BD74B22BB0051F007F8B73 /* PhotoListView.swift */; };
+		E4BD74B52BB00538007F8B73 /* PhotoListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4BD74B42BB00538007F8B73 /* PhotoListViewModel.swift */; };
+		E4E5E8462BB010CB007B04C2 /* ImageListMock.json in Resources */ = {isa = PBXBuildFile; fileRef = E4E5E8452BB010CB007B04C2 /* ImageListMock.json */; };
+		E4E5E8492BB01402007B04C2 /* PicsumModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E5E8482BB01402007B04C2 /* PicsumModelTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
 		E4BD748C2BAFF6EE007F8B73 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = E4BD74732BAFF6EC007F8B73 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = E4BD747A2BAFF6ED007F8B73;
-			remoteInfo = SKTChallenge;
-		};
-		E4BD74962BAFF6EE007F8B73 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = E4BD74732BAFF6EC007F8B73 /* Project object */;
 			proxyType = 1;
@@ -39,17 +32,16 @@
 /* Begin PBXFileReference section */
 		E4BD747B2BAFF6ED007F8B73 /* SKTChallenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SKTChallenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4BD747E2BAFF6ED007F8B73 /* SKTChallengeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKTChallengeApp.swift; sourceTree = "<group>"; };
-		E4BD74802BAFF6ED007F8B73 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		E4BD74822BAFF6ED007F8B73 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E4BD74852BAFF6EE007F8B73 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		E4BD748B2BAFF6EE007F8B73 /* SKTChallengeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SKTChallengeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		E4BD748F2BAFF6EE007F8B73 /* SKTChallengeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKTChallengeTests.swift; sourceTree = "<group>"; };
-		E4BD74952BAFF6EE007F8B73 /* SKTChallengeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SKTChallengeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		E4BD74992BAFF6EE007F8B73 /* SKTChallengeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKTChallengeUITests.swift; sourceTree = "<group>"; };
-		E4BD749B2BAFF6EE007F8B73 /* SKTChallengeUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKTChallengeUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		E4BD74A92BAFFF6D007F8B73 /* PicsumNetworkProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PicsumNetworkProtocol.swift; sourceTree = "<group>"; };
 		E4BD74AC2BB00001007F8B73 /* PicsumImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PicsumImage.swift; sourceTree = "<group>"; };
 		E4BD74AE2BB00089007F8B73 /* PicksumAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PicksumAPI.swift; sourceTree = "<group>"; };
+		E4BD74B22BB0051F007F8B73 /* PhotoListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoListView.swift; sourceTree = "<group>"; };
+		E4BD74B42BB00538007F8B73 /* PhotoListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoListViewModel.swift; sourceTree = "<group>"; };
+		E4E5E8452BB010CB007B04C2 /* ImageListMock.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ImageListMock.json; sourceTree = "<group>"; };
+		E4E5E8482BB01402007B04C2 /* PicsumModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PicsumModelTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,13 +59,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		E4BD74922BAFF6EE007F8B73 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -82,7 +67,6 @@
 			children = (
 				E4BD747D2BAFF6ED007F8B73 /* SKTChallenge */,
 				E4BD748E2BAFF6EE007F8B73 /* SKTChallengeTests */,
-				E4BD74982BAFF6EE007F8B73 /* SKTChallengeUITests */,
 				E4BD747C2BAFF6ED007F8B73 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -92,7 +76,6 @@
 			children = (
 				E4BD747B2BAFF6ED007F8B73 /* SKTChallenge.app */,
 				E4BD748B2BAFF6EE007F8B73 /* SKTChallengeTests.xctest */,
-				E4BD74952BAFF6EE007F8B73 /* SKTChallengeUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -100,10 +83,10 @@
 		E4BD747D2BAFF6ED007F8B73 /* SKTChallenge */ = {
 			isa = PBXGroup;
 			children = (
+				E4BD74B02BB004E2007F8B73 /* View */,
 				E4BD74AB2BAFFFA0007F8B73 /* Model */,
 				E4BD74A82BAFFEE3007F8B73 /* Netowork */,
 				E4BD747E2BAFF6ED007F8B73 /* SKTChallengeApp.swift */,
-				E4BD74802BAFF6ED007F8B73 /* ContentView.swift */,
 				E4BD74822BAFF6ED007F8B73 /* Assets.xcassets */,
 				E4BD74842BAFF6EE007F8B73 /* Preview Content */,
 			);
@@ -121,18 +104,9 @@
 		E4BD748E2BAFF6EE007F8B73 /* SKTChallengeTests */ = {
 			isa = PBXGroup;
 			children = (
-				E4BD748F2BAFF6EE007F8B73 /* SKTChallengeTests.swift */,
+				E4BD74B82BB00E81007F8B73 /* PicsumNetworkServiceTests */,
 			);
 			path = SKTChallengeTests;
-			sourceTree = "<group>";
-		};
-		E4BD74982BAFF6EE007F8B73 /* SKTChallengeUITests */ = {
-			isa = PBXGroup;
-			children = (
-				E4BD74992BAFF6EE007F8B73 /* SKTChallengeUITests.swift */,
-				E4BD749B2BAFF6EE007F8B73 /* SKTChallengeUITestsLaunchTests.swift */,
-			);
-			path = SKTChallengeUITests;
 			sourceTree = "<group>";
 		};
 		E4BD74A82BAFFEE3007F8B73 /* Netowork */ = {
@@ -150,6 +124,32 @@
 				E4BD74AC2BB00001007F8B73 /* PicsumImage.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		E4BD74B02BB004E2007F8B73 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E4BD74B12BB004FC007F8B73 /* PhotoListView */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E4BD74B12BB004FC007F8B73 /* PhotoListView */ = {
+			isa = PBXGroup;
+			children = (
+				E4BD74B22BB0051F007F8B73 /* PhotoListView.swift */,
+				E4BD74B42BB00538007F8B73 /* PhotoListViewModel.swift */,
+			);
+			path = PhotoListView;
+			sourceTree = "<group>";
+		};
+		E4BD74B82BB00E81007F8B73 /* PicsumNetworkServiceTests */ = {
+			isa = PBXGroup;
+			children = (
+				E4E5E8452BB010CB007B04C2 /* ImageListMock.json */,
+				E4E5E8482BB01402007B04C2 /* PicsumModelTests.swift */,
+			);
+			path = PicsumNetworkServiceTests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -190,24 +190,6 @@
 			productReference = E4BD748B2BAFF6EE007F8B73 /* SKTChallengeTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		E4BD74942BAFF6EE007F8B73 /* SKTChallengeUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = E4BD74A52BAFF6EE007F8B73 /* Build configuration list for PBXNativeTarget "SKTChallengeUITests" */;
-			buildPhases = (
-				E4BD74912BAFF6EE007F8B73 /* Sources */,
-				E4BD74922BAFF6EE007F8B73 /* Frameworks */,
-				E4BD74932BAFF6EE007F8B73 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				E4BD74972BAFF6EE007F8B73 /* PBXTargetDependency */,
-			);
-			name = SKTChallengeUITests;
-			productName = SKTChallengeUITests;
-			productReference = E4BD74952BAFF6EE007F8B73 /* SKTChallengeUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -223,10 +205,7 @@
 					};
 					E4BD748A2BAFF6EE007F8B73 = {
 						CreatedOnToolsVersion = 15.2;
-						TestTargetID = E4BD747A2BAFF6ED007F8B73;
-					};
-					E4BD74942BAFF6EE007F8B73 = {
-						CreatedOnToolsVersion = 15.2;
+						LastSwiftMigration = 1520;
 						TestTargetID = E4BD747A2BAFF6ED007F8B73;
 					};
 				};
@@ -246,7 +225,6 @@
 			targets = (
 				E4BD747A2BAFF6ED007F8B73 /* SKTChallenge */,
 				E4BD748A2BAFF6EE007F8B73 /* SKTChallengeTests */,
-				E4BD74942BAFF6EE007F8B73 /* SKTChallengeUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -265,13 +243,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		E4BD74932BAFF6EE007F8B73 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
+				E4E5E8462BB010CB007B04C2 /* ImageListMock.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -285,8 +257,9 @@
 				E4BD74AF2BB00089007F8B73 /* PicksumAPI.swift in Sources */,
 				E4BD74AD2BB00001007F8B73 /* PicsumImage.swift in Sources */,
 				E4BD74AA2BAFFF6D007F8B73 /* PicsumNetworkProtocol.swift in Sources */,
-				E4BD74812BAFF6ED007F8B73 /* ContentView.swift in Sources */,
 				E4BD747F2BAFF6ED007F8B73 /* SKTChallengeApp.swift in Sources */,
+				E4BD74B32BB0051F007F8B73 /* PhotoListView.swift in Sources */,
+				E4BD74B52BB00538007F8B73 /* PhotoListViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -294,16 +267,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E4BD74902BAFF6EE007F8B73 /* SKTChallengeTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		E4BD74912BAFF6EE007F8B73 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				E4BD749A2BAFF6EE007F8B73 /* SKTChallengeUITests.swift in Sources */,
-				E4BD749C2BAFF6EE007F8B73 /* SKTChallengeUITestsLaunchTests.swift in Sources */,
+				E4E5E8492BB01402007B04C2 /* PicsumModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -314,11 +278,6 @@
 			isa = PBXTargetDependency;
 			target = E4BD747A2BAFF6ED007F8B73 /* SKTChallenge */;
 			targetProxy = E4BD748C2BAFF6EE007F8B73 /* PBXContainerItemProxy */;
-		};
-		E4BD74972BAFF6EE007F8B73 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = E4BD747A2BAFF6ED007F8B73 /* SKTChallenge */;
-			targetProxy = E4BD74962BAFF6EE007F8B73 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -375,7 +334,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -432,7 +391,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -507,15 +466,18 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = Y4TX5PVNK4;
+				DEVELOPMENT_TEAM = PXLT5YXWCM;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = grohong.SKTChallengeTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SKTChallenge.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/SKTChallenge";
@@ -527,54 +489,20 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = Y4TX5PVNK4;
+				DEVELOPMENT_TEAM = PXLT5YXWCM;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = grohong.SKTChallengeTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SKTChallenge.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/SKTChallenge";
-			};
-			name = Release;
-		};
-		E4BD74A62BAFF6EE007F8B73 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = Y4TX5PVNK4;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = grohong.SKTChallengeUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = SKTChallenge;
-			};
-			name = Debug;
-		};
-		E4BD74A72BAFF6EE007F8B73 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = Y4TX5PVNK4;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = grohong.SKTChallengeUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = SKTChallenge;
 			};
 			name = Release;
 		};
@@ -604,15 +532,6 @@
 			buildConfigurations = (
 				E4BD74A32BAFF6EE007F8B73 /* Debug */,
 				E4BD74A42BAFF6EE007F8B73 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		E4BD74A52BAFF6EE007F8B73 /* Build configuration list for PBXNativeTarget "SKTChallengeUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				E4BD74A62BAFF6EE007F8B73 /* Debug */,
-				E4BD74A72BAFF6EE007F8B73 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

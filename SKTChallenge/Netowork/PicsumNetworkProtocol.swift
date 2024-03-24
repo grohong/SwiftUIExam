@@ -1,5 +1,5 @@
 //
-//  PicsumNetworkProtocol.swift
+//  PicsumNetworkServiceProtocol.swift
 //  SKTChallenge
 //
 //  Created by Hong Seong Ho on 3/24/24.
@@ -7,14 +7,14 @@
 
 import Foundation
 
-protocol PicsumNetworkProtocol {
+protocol PicsumNetworkServiceProtocol {
 
     func fetchImageList(page: Int, limit: Int) async throws -> [PicsumImage]
 }
 
-actor PicsumNetwork: PicsumNetworkProtocol {
+actor PicsumNetworkService: PicsumNetworkServiceProtocol {
 
-    static let shared = PicsumNetwork()
+    static let shared = PicsumNetworkService()
 
     private init() {}
 
