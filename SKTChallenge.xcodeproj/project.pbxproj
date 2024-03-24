@@ -14,6 +14,9 @@
 		E4BD74902BAFF6EE007F8B73 /* SKTChallengeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4BD748F2BAFF6EE007F8B73 /* SKTChallengeTests.swift */; };
 		E4BD749A2BAFF6EE007F8B73 /* SKTChallengeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4BD74992BAFF6EE007F8B73 /* SKTChallengeUITests.swift */; };
 		E4BD749C2BAFF6EE007F8B73 /* SKTChallengeUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4BD749B2BAFF6EE007F8B73 /* SKTChallengeUITestsLaunchTests.swift */; };
+		E4BD74AA2BAFFF6D007F8B73 /* PicsumNetworkProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4BD74A92BAFFF6D007F8B73 /* PicsumNetworkProtocol.swift */; };
+		E4BD74AD2BB00001007F8B73 /* PicsumImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4BD74AC2BB00001007F8B73 /* PicsumImage.swift */; };
+		E4BD74AF2BB00089007F8B73 /* PicksumAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4BD74AE2BB00089007F8B73 /* PicksumAPI.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +47,9 @@
 		E4BD74952BAFF6EE007F8B73 /* SKTChallengeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SKTChallengeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4BD74992BAFF6EE007F8B73 /* SKTChallengeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKTChallengeUITests.swift; sourceTree = "<group>"; };
 		E4BD749B2BAFF6EE007F8B73 /* SKTChallengeUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKTChallengeUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		E4BD74A92BAFFF6D007F8B73 /* PicsumNetworkProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PicsumNetworkProtocol.swift; sourceTree = "<group>"; };
+		E4BD74AC2BB00001007F8B73 /* PicsumImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PicsumImage.swift; sourceTree = "<group>"; };
+		E4BD74AE2BB00089007F8B73 /* PicksumAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PicksumAPI.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +100,8 @@
 		E4BD747D2BAFF6ED007F8B73 /* SKTChallenge */ = {
 			isa = PBXGroup;
 			children = (
+				E4BD74AB2BAFFFA0007F8B73 /* Model */,
+				E4BD74A82BAFFEE3007F8B73 /* Netowork */,
 				E4BD747E2BAFF6ED007F8B73 /* SKTChallengeApp.swift */,
 				E4BD74802BAFF6ED007F8B73 /* ContentView.swift */,
 				E4BD74822BAFF6ED007F8B73 /* Assets.xcassets */,
@@ -125,6 +133,23 @@
 				E4BD749B2BAFF6EE007F8B73 /* SKTChallengeUITestsLaunchTests.swift */,
 			);
 			path = SKTChallengeUITests;
+			sourceTree = "<group>";
+		};
+		E4BD74A82BAFFEE3007F8B73 /* Netowork */ = {
+			isa = PBXGroup;
+			children = (
+				E4BD74A92BAFFF6D007F8B73 /* PicsumNetworkProtocol.swift */,
+				E4BD74AE2BB00089007F8B73 /* PicksumAPI.swift */,
+			);
+			path = Netowork;
+			sourceTree = "<group>";
+		};
+		E4BD74AB2BAFFFA0007F8B73 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E4BD74AC2BB00001007F8B73 /* PicsumImage.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -257,6 +282,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E4BD74AF2BB00089007F8B73 /* PicksumAPI.swift in Sources */,
+				E4BD74AD2BB00001007F8B73 /* PicsumImage.swift in Sources */,
+				E4BD74AA2BAFFF6D007F8B73 /* PicsumNetworkProtocol.swift in Sources */,
 				E4BD74812BAFF6ED007F8B73 /* ContentView.swift in Sources */,
 				E4BD747F2BAFF6ED007F8B73 /* SKTChallengeApp.swift in Sources */,
 			);
@@ -422,7 +450,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"SKTChallenge/Preview Content\"";
-				DEVELOPMENT_TEAM = Y4TX5PVNK4;
+				DEVELOPMENT_TEAM = PXLT5YXWCM;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -430,6 +458,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -451,7 +480,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"SKTChallenge/Preview Content\"";
-				DEVELOPMENT_TEAM = Y4TX5PVNK4;
+				DEVELOPMENT_TEAM = PXLT5YXWCM;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -459,6 +488,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
