@@ -17,6 +17,7 @@
 		E4BD74AF2BB00089007F8B73 /* PicksumAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4BD74AE2BB00089007F8B73 /* PicksumAPI.swift */; };
 		E4BD74B32BB0051F007F8B73 /* PhotoListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4BD74B22BB0051F007F8B73 /* PhotoListView.swift */; };
 		E4BD74B52BB00538007F8B73 /* PhotoListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4BD74B42BB00538007F8B73 /* PhotoListViewModel.swift */; };
+		E4E1C6462BB0476D0007D889 /* NetworkErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E1C6452BB0476D0007D889 /* NetworkErrorView.swift */; };
 		E4E5E8462BB010CB007B04C2 /* ImageListMock.json in Resources */ = {isa = PBXBuildFile; fileRef = E4E5E8452BB010CB007B04C2 /* ImageListMock.json */; };
 		E4E5E8492BB01402007B04C2 /* PicsumModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E5E8482BB01402007B04C2 /* PicsumModelTests.swift */; };
 /* End PBXBuildFile section */
@@ -44,6 +45,7 @@
 		E4BD74AE2BB00089007F8B73 /* PicksumAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PicksumAPI.swift; sourceTree = "<group>"; };
 		E4BD74B22BB0051F007F8B73 /* PhotoListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoListView.swift; sourceTree = "<group>"; };
 		E4BD74B42BB00538007F8B73 /* PhotoListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoListViewModel.swift; sourceTree = "<group>"; };
+		E4E1C6452BB0476D0007D889 /* NetworkErrorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkErrorView.swift; sourceTree = "<group>"; };
 		E4E5E8452BB010CB007B04C2 /* ImageListMock.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ImageListMock.json; sourceTree = "<group>"; };
 		E4E5E8482BB01402007B04C2 /* PicsumModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PicsumModelTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -134,6 +136,7 @@
 		E4BD74B02BB004E2007F8B73 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				E4E1C6452BB0476D0007D889 /* NetworkErrorView.swift */,
 				E4BD74B12BB004FC007F8B73 /* PhotoListView */,
 			);
 			path = View;
@@ -266,6 +269,7 @@
 				E4BD747F2BAFF6ED007F8B73 /* SKTChallengeApp.swift in Sources */,
 				E4BD74B32BB0051F007F8B73 /* PhotoListView.swift in Sources */,
 				E4BD74B52BB00538007F8B73 /* PhotoListViewModel.swift in Sources */,
+				E4E1C6462BB0476D0007D889 /* NetworkErrorView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
