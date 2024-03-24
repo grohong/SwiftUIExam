@@ -34,7 +34,6 @@ struct PhotoListView: View {
     }
 }
 
-
 #Preview {
     PhotoListView(viewModel: PhotoListViewModel())
 }
