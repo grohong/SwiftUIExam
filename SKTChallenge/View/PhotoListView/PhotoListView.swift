@@ -12,8 +12,19 @@ struct PhotoListView: View {
     @StateObject var viewModel: PhotoListViewModel
 
     var body: some View {
-        List(viewModel.imageList, id: \.id) { image in
-            Text(image.author)
+        ZStack {
+            if viewModel.isLoading {
+                ProgressView()
+                    .scaleEffect(1.5)
+            } else if let errorMessage = viewModel.errorMessage {
+                NetworkErrorView(errorMessage: errorMessage) {
+                    Task { await viewModel.fetchImageList() }
+                }
+            } else {
+                List(viewModel.imageList, id: \.id) { image in
+                    Text(image.author)
+                }
+            }
         }
         .onAppear {
             Task {
@@ -22,6 +33,7 @@ struct PhotoListView: View {
         }
     }
 }
+
 
 #Preview {
     PhotoListView(viewModel: PhotoListViewModel())
