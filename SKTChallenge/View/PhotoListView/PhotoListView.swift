@@ -13,9 +13,10 @@ struct PhotoListView: View {
 
     struct Constants {
         static let gridSpacing: CGFloat = 20
-        static let gridColumnCount: Int = 2
+        static let gridColumnCount: Int = 1
         static let gridCellRatio: CGFloat = 3333 / 5000
 
+        static let standardWidth: CGFloat = 500
         static let navigationTitle: String = "Lorem Picsum"
     }
 
@@ -31,11 +32,12 @@ struct PhotoListView: View {
                     }
                 } else {
                     GeometryReader { geometry in
-                        let itemWidth = (geometry.size.width - (Constants.gridSpacing * CGFloat(Constants.gridColumnCount + 1))) / CGFloat(Constants.gridColumnCount)
+                        let columnCount = geometry.size.width > Constants.standardWidth ? Constants.gridColumnCount + 1 : Constants.gridColumnCount
+                        let itemWidth = (geometry.size.width - (Constants.gridSpacing * CGFloat(columnCount + 1))) / CGFloat(columnCount)
 
                         ScrollView {
                             LazyVGrid(
-                                columns: Array(repeating: GridItem(.fixed(itemWidth)), count: Constants.gridColumnCount),
+                                columns: Array(repeating: GridItem(.fixed(itemWidth)), count: columnCount),
                                 spacing: Constants.gridSpacing
                             ) {
                                 ForEach(viewModel.imageList) { image in
