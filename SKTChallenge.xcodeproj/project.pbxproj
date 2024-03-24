@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E4208D9C2BB0224500765069 /* XCTestCase+MockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4208D9B2BB0224500765069 /* XCTestCase+MockData.swift */; };
+		E4208D9E2BB022FC00765069 /* PicsumAPITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4208D9D2BB022FC00765069 /* PicsumAPITests.swift */; };
 		E4BD747F2BAFF6ED007F8B73 /* SKTChallengeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4BD747E2BAFF6ED007F8B73 /* SKTChallengeApp.swift */; };
 		E4BD74832BAFF6ED007F8B73 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E4BD74822BAFF6ED007F8B73 /* Assets.xcassets */; };
 		E4BD74862BAFF6EE007F8B73 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E4BD74852BAFF6EE007F8B73 /* Preview Assets.xcassets */; };
@@ -30,6 +32,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		E4208D9B2BB0224500765069 /* XCTestCase+MockData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+MockData.swift"; sourceTree = "<group>"; };
+		E4208D9D2BB022FC00765069 /* PicsumAPITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PicsumAPITests.swift; sourceTree = "<group>"; };
 		E4BD747B2BAFF6ED007F8B73 /* SKTChallenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SKTChallenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4BD747E2BAFF6ED007F8B73 /* SKTChallengeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKTChallengeApp.swift; sourceTree = "<group>"; };
 		E4BD74822BAFF6ED007F8B73 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -105,6 +109,7 @@
 			isa = PBXGroup;
 			children = (
 				E4BD74B82BB00E81007F8B73 /* PicsumNetworkServiceTests */,
+				E4208D9B2BB0224500765069 /* XCTestCase+MockData.swift */,
 			);
 			path = SKTChallengeTests;
 			sourceTree = "<group>";
@@ -148,6 +153,7 @@
 			children = (
 				E4E5E8452BB010CB007B04C2 /* ImageListMock.json */,
 				E4E5E8482BB01402007B04C2 /* PicsumModelTests.swift */,
+				E4208D9D2BB022FC00765069 /* PicsumAPITests.swift */,
 			);
 			path = PicsumNetworkServiceTests;
 			sourceTree = "<group>";
@@ -267,6 +273,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E4208D9E2BB022FC00765069 /* PicsumAPITests.swift in Sources */,
+				E4208D9C2BB0224500765069 /* XCTestCase+MockData.swift in Sources */,
 				E4E5E8492BB01402007B04C2 /* PicsumModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

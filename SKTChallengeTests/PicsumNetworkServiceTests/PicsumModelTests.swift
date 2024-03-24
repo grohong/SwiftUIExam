@@ -18,17 +18,6 @@ class PicsumModelTests: XCTestCase {
         }
     }
 
-    private enum MockError: Error {
-        case fileNotFound
-    }
-
-    private func loadTestData() throws -> Data {
-        guard let path = Bundle(for: type(of: self)).path(forResource: "ImageListMock", ofType: "json") else {
-            throw MockError.fileNotFound
-        }
-        return try Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe)
-    }
-
     var mockData = Data()
 
     func testDecodePicsumModel() throws {
