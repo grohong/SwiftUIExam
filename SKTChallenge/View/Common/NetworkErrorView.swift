@@ -21,8 +21,7 @@ struct NetworkErrorView: View {
                 .multilineTextAlignment(.center)
             
             Button(action: retryAction) {
-                Text("다시 시도")
-                    .fontWeight(.bold)
+                Label("다시 시도", systemImage: "arrow.clockwise")
             }
         }
     }
