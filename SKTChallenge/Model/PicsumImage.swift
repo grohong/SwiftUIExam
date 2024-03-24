@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct PicsumImage: Codable {
+struct PicsumImage: Identifiable, Codable {
 
     let id: String
     let author: String
