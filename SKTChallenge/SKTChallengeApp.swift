@@ -11,7 +11,7 @@ import SwiftUI
 struct SKTChallengeApp: App {
     var body: some Scene {
         WindowGroup {
-            PhotoListView(viewModel: PhotoListViewModel())
+            PicsumPhotoListView(viewModel: PicsumPhotoListViewModel())
         }
     }
 }
