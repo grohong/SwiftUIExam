@@ -13,6 +13,12 @@ class AsyncImageViewModel: ObservableObject {
     @Published var isLoading = false
     @Published var showRetryButton = false
 
+    private var imageLoader: ImageLoaderProtocol
+
+    init(imageLoader: ImageLoaderProtocol = ImageLoader.shared) {
+        self.imageLoader = imageLoader
+    }
+
     func load(fromURL url: URL) async {
 
         await MainActor.run {
@@ -20,20 +26,16 @@ class AsyncImageViewModel: ObservableObject {
             showRetryButton = false
         }
 
-        do {
-            let (data, _) = try await URLSession.shared.data(from: url)
-            if let uiImage = UIImage(data: data) {
-                await MainActor.run { image = Image(uiImage: uiImage) }
-            } else {
-                await MainActor.run { showRetryButton = true }
-            }
-        } catch {
+        if let (_, image) = await imageLoader.loadImage(from: url) {
             await MainActor.run {
-                isLoading = false
-                showRetryButton = true
+                self.image = Image(uiImage: image)
+                self.isLoading = false
+            }
+        } else {
+            await MainActor.run {
+                self.isLoading = false
+                self.showRetryButton = true
             }
         }
-
-        await MainActor.run { isLoading = false }
     }
 }
