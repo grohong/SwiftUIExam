@@ -23,7 +23,7 @@ struct PhotoListView: View {
     var body: some View {
         NavigationView {
             ZStack {
-                if viewModel.isLoading {
+                if viewModel.isFetchLoading {
                     ProgressView()
                         .scaleEffect(1.5)
                 } else if let errorMessage = viewModel.errorMessage {
@@ -46,9 +46,18 @@ struct PhotoListView: View {
                                     )
                                     .frame(width: itemWidth, height: itemWidth * Constants.gridCellRatio)
                                     .cornerRadius(8)
+                                    .onAppear {
+                                        if image == viewModel.imageList.last {
+                                            Task { await viewModel.fetchMoreImageList() }
+                                        }
+                                    }
                                 }
                             }
                             .padding(.horizontal)
+
+                            if viewModel.isFetchMoreLoading == true {
+                                ProgressView()
+                            }
                         }
                     }
                 }
