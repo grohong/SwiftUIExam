@@ -35,48 +35,43 @@ struct PhotoListView: View {
     }
 
     var body: some View {
-        GridCollectionView(
-            imageList: imageList,
-            fetchMoreAction: fetchMoreAction,
-            refreshAction: refreshAction
-        )
-//        if #available(iOS 15.0, *) {
-//            GeometryReader { geometry in
-//                let columnCount = geometry.size.width > Constants.standardWidth ? Constants.gridColumnCount + 1 : Constants.gridColumnCount
-//                let itemWidth = (geometry.size.width - (Constants.gridSpacing * CGFloat(columnCount + 1))) / CGFloat(columnCount)
-//
-//                ScrollView {
-//                    LazyVGrid(
-//                        columns: Array(repeating: GridItem(.fixed(itemWidth)), count: columnCount),
-//                        spacing: Constants.gridSpacing
-//                    ) {
-//                        ForEach(imageList) { image in
-//                            AsyncImageView(
-//                                url: image.downloadURL
-//                            )
-//                            .frame(width: itemWidth, height: itemWidth * Constants.gridCellRatio)
-//                            .cornerRadius(8)
-//                            .onAppear {
-//                                if image == imageList.last {
-//                                    fetchMoreAction()
-//                                }
-//                            }
-//                        }
-//                    }
-//                    .padding(.horizontal)
-//
-//                    if isFetchMoreLoading == true {
-//                        ProgressView()
-//                    }
-//                }
-//                .refreshable { await refreshAction() }
-//            }
-//        } else {
-//            GridCollectionView(
-//                imageList: imageList,
-//                fetchMoreAction: fetchMoreAction,
-//                refreshAction: refreshAction
-//            )
-//        }
+        if #available(iOS 15.0, *) {
+            GeometryReader { geometry in
+                let columnCount = geometry.size.width > Constants.standardWidth ? Constants.gridColumnCount + 1 : Constants.gridColumnCount
+                let itemWidth = (geometry.size.width - (Constants.gridSpacing * CGFloat(columnCount + 1))) / CGFloat(columnCount)
+
+                ScrollView {
+                    LazyVGrid(
+                        columns: Array(repeating: GridItem(.fixed(itemWidth)), count: columnCount),
+                        spacing: Constants.gridSpacing
+                    ) {
+                        ForEach(imageList) { image in
+                            AsyncImageView(
+                                url: image.downloadURL
+                            )
+                            .frame(width: itemWidth, height: itemWidth * Constants.gridCellRatio)
+                            .cornerRadius(8)
+                            .onAppear {
+                                if image == imageList.last {
+                                    fetchMoreAction()
+                                }
+                            }
+                        }
+                    }
+                    .padding(.horizontal)
+
+                    if isFetchMoreLoading == true {
+                        ProgressView()
+                    }
+                }
+                .refreshable { await refreshAction() }
+            }
+        } else {
+            GridCollectionView(
+                imageList: imageList,
+                fetchMoreAction: fetchMoreAction,
+                refreshAction: refreshAction
+            )
+        }
     }
 }
