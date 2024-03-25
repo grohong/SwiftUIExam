@@ -12,17 +12,13 @@ struct AsyncImageView: View {
     @StateObject var viewModel: AsyncImageViewModel
 
     private let url: URL
-    private let placeholder: Image
 
     init(
         viewModel: AsyncImageViewModel = AsyncImageViewModel(),
-        url: URL,
-        placeholder: Image = Image(systemName: "photo")
+        url: URL
     ) {
         _viewModel = StateObject(wrappedValue: viewModel)
-
         self.url = url
-        self.placeholder = placeholder
     }
 
     var body: some View {
@@ -40,9 +36,9 @@ struct AsyncImageView: View {
                 }
                 .font(.caption)
                 .padding()
-                .foregroundColor(.black)
+                .foregroundColor(.primary)
             } else {
-                placeholder
+                ProgressView()
                     .onAppear {
                         Task { await viewModel.load(fromURL: url) }
                     }

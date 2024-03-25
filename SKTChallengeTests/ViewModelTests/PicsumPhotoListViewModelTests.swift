@@ -8,21 +8,21 @@
 import XCTest
 @testable import SKTChallenge
 
-class PhotoListViewModelTests: XCTestCase {
+class PicsumPhotoListViewModelTests: XCTestCase {
 
     override func setUpWithError() throws {
         do {
             let mockData = try loadTestData()
             let mockImageList = try JSONDecoder().decode([PicsumImage].self, from: mockData)
             mockNetworkService = MockNetworkService(fetchedImageList: mockImageList)
-            viewModel = PhotoListViewModel(networkService: mockNetworkService)
+            viewModel = PicsumPhotoListViewModel(networkService: mockNetworkService)
         } catch {
             throw XCTSkip("목 데이터를 찾지 못했습니다: \(error.localizedDescription)")
         }
     }
 
     var mockNetworkService: MockNetworkService!
-    var viewModel: PhotoListViewModel!
+    var viewModel: PicsumPhotoListViewModel!
 
     func testFetchImageListSuccess() async {
         await viewModel.fetchImageList()

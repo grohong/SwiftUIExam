@@ -23,23 +23,17 @@ class AsyncImageViewModel: ObservableObject {
         do {
             let (data, _) = try await URLSession.shared.data(from: url)
             if let uiImage = UIImage(data: data) {
-                await MainActor.run {
-                    self.image = Image(uiImage: uiImage)
-                }
+                await MainActor.run { image = Image(uiImage: uiImage) }
             } else {
-                await MainActor.run {
-                    self.showRetryButton = true
-                }
+                await MainActor.run { showRetryButton = true }
             }
         } catch {
             await MainActor.run {
-                self.isLoading = false
-                self.showRetryButton = true
+                isLoading = false
+                showRetryButton = true
             }
         }
 
-        await MainActor.run {
-            self.isLoading = false
-        }
+        await MainActor.run { isLoading = false }
     }
 }
