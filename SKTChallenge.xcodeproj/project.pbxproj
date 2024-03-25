@@ -14,7 +14,6 @@
 		E4691D042BB04ACF009272B0 /* PicsumPhotoListViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4691D032BB04ACF009272B0 /* PicsumPhotoListViewModelTests.swift */; };
 		E4691D072BB0DD34009272B0 /* AsyncImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4691D062BB0DD34009272B0 /* AsyncImageView.swift */; };
 		E4691D092BB0DD41009272B0 /* AsyncImageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4691D082BB0DD41009272B0 /* AsyncImageViewModel.swift */; };
-		E4691D102BB19EC5009272B0 /* RefreshableScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4691D0F2BB19EC5009272B0 /* RefreshableScrollView.swift */; };
 		E4BD747F2BAFF6ED007F8B73 /* SKTChallengeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4BD747E2BAFF6ED007F8B73 /* SKTChallengeApp.swift */; };
 		E4BD74832BAFF6ED007F8B73 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E4BD74822BAFF6ED007F8B73 /* Assets.xcassets */; };
 		E4BD74862BAFF6EE007F8B73 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E4BD74852BAFF6EE007F8B73 /* Preview Assets.xcassets */; };
@@ -23,6 +22,9 @@
 		E4BD74AF2BB00089007F8B73 /* PicksumAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4BD74AE2BB00089007F8B73 /* PicksumAPI.swift */; };
 		E4BD74B32BB0051F007F8B73 /* PicsumPhotoListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4BD74B22BB0051F007F8B73 /* PicsumPhotoListView.swift */; };
 		E4BD74B52BB00538007F8B73 /* PicsumPhotoListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4BD74B42BB00538007F8B73 /* PicsumPhotoListViewModel.swift */; };
+		E4C605AC2BB20833003FFA2D /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C605AB2BB20833003FFA2D /* ImageLoader.swift */; };
+		E4C605AE2BB2112E003FFA2D /* AsyncImageViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C605AD2BB2112E003FFA2D /* AsyncImageViewModelTests.swift */; };
+		E4C605B02BB219C2003FFA2D /* ImageLoaderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C605AF2BB219C2003FFA2D /* ImageLoaderTests.swift */; };
 		E4E1C6462BB0476D0007D889 /* NetworkErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E1C6452BB0476D0007D889 /* NetworkErrorView.swift */; };
 		E4E5E8462BB010CB007B04C2 /* ImageListMock.json in Resources */ = {isa = PBXBuildFile; fileRef = E4E5E8452BB010CB007B04C2 /* ImageListMock.json */; };
 		E4E5E8492BB01402007B04C2 /* PicsumModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E5E8482BB01402007B04C2 /* PicsumModelTests.swift */; };
@@ -46,7 +48,6 @@
 		E4691D032BB04ACF009272B0 /* PicsumPhotoListViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PicsumPhotoListViewModelTests.swift; sourceTree = "<group>"; };
 		E4691D062BB0DD34009272B0 /* AsyncImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncImageView.swift; sourceTree = "<group>"; };
 		E4691D082BB0DD41009272B0 /* AsyncImageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncImageViewModel.swift; sourceTree = "<group>"; };
-		E4691D0F2BB19EC5009272B0 /* RefreshableScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshableScrollView.swift; sourceTree = "<group>"; };
 		E4BD747B2BAFF6ED007F8B73 /* SKTChallenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SKTChallenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4BD747E2BAFF6ED007F8B73 /* SKTChallengeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKTChallengeApp.swift; sourceTree = "<group>"; };
 		E4BD74822BAFF6ED007F8B73 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -57,6 +58,9 @@
 		E4BD74AE2BB00089007F8B73 /* PicksumAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PicksumAPI.swift; sourceTree = "<group>"; };
 		E4BD74B22BB0051F007F8B73 /* PicsumPhotoListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PicsumPhotoListView.swift; sourceTree = "<group>"; };
 		E4BD74B42BB00538007F8B73 /* PicsumPhotoListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PicsumPhotoListViewModel.swift; sourceTree = "<group>"; };
+		E4C605AB2BB20833003FFA2D /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
+		E4C605AD2BB2112E003FFA2D /* AsyncImageViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncImageViewModelTests.swift; sourceTree = "<group>"; };
+		E4C605AF2BB219C2003FFA2D /* ImageLoaderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoaderTests.swift; sourceTree = "<group>"; };
 		E4E1C6452BB0476D0007D889 /* NetworkErrorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkErrorView.swift; sourceTree = "<group>"; };
 		E4E5E8452BB010CB007B04C2 /* ImageListMock.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ImageListMock.json; sourceTree = "<group>"; };
 		E4E5E8482BB01402007B04C2 /* PicsumModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PicsumModelTests.swift; sourceTree = "<group>"; };
@@ -102,6 +106,7 @@
 			isa = PBXGroup;
 			children = (
 				E4691D032BB04ACF009272B0 /* PicsumPhotoListViewModelTests.swift */,
+				E4C605AD2BB2112E003FFA2D /* AsyncImageViewModelTests.swift */,
 			);
 			path = ViewModelTests;
 			sourceTree = "<group>";
@@ -119,7 +124,6 @@
 			isa = PBXGroup;
 			children = (
 				E4E1C6452BB0476D0007D889 /* NetworkErrorView.swift */,
-				E4691D0F2BB19EC5009272B0 /* RefreshableScrollView.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -145,12 +149,12 @@
 		E4BD747D2BAFF6ED007F8B73 /* SKTChallenge */ = {
 			isa = PBXGroup;
 			children = (
+				E4C605AA2BB207F7003FFA2D /* Util */,
+				E4C605A92BB20799003FFA2D /* Resources */,
 				E4BD74B02BB004E2007F8B73 /* View */,
 				E4BD74AB2BAFFFA0007F8B73 /* Model */,
 				E4BD74A82BAFFEE3007F8B73 /* Netowork */,
 				E4BD747E2BAFF6ED007F8B73 /* SKTChallengeApp.swift */,
-				E4BD74822BAFF6ED007F8B73 /* Assets.xcassets */,
-				E4BD74842BAFF6EE007F8B73 /* Preview Content */,
 			);
 			path = SKTChallenge;
 			sourceTree = "<group>";
@@ -169,6 +173,7 @@
 				E4691D022BB04AB7009272B0 /* ViewModelTests */,
 				E4BD74B82BB00E81007F8B73 /* PicsumNetworkServiceTests */,
 				E4208D9B2BB0224500765069 /* XCTestCase+MockData.swift */,
+				E4C605AF2BB219C2003FFA2D /* ImageLoaderTests.swift */,
 			);
 			path = SKTChallengeTests;
 			sourceTree = "<group>";
@@ -217,6 +222,23 @@
 				E4208D9D2BB022FC00765069 /* PicsumAPITests.swift */,
 			);
 			path = PicsumNetworkServiceTests;
+			sourceTree = "<group>";
+		};
+		E4C605A92BB20799003FFA2D /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				E4BD74822BAFF6ED007F8B73 /* Assets.xcassets */,
+				E4BD74842BAFF6EE007F8B73 /* Preview Content */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		E4C605AA2BB207F7003FFA2D /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				E4C605AB2BB20833003FFA2D /* ImageLoader.swift */,
+			);
+			path = Util;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -323,6 +345,7 @@
 			files = (
 				E4BD74AF2BB00089007F8B73 /* PicksumAPI.swift in Sources */,
 				E4BD74AD2BB00001007F8B73 /* PicsumImage.swift in Sources */,
+				E4C605AC2BB20833003FFA2D /* ImageLoader.swift in Sources */,
 				E4BD74AA2BAFFF6D007F8B73 /* PicsumNetworkProtocol.swift in Sources */,
 				E4691D072BB0DD34009272B0 /* AsyncImageView.swift in Sources */,
 				E4BD747F2BAFF6ED007F8B73 /* SKTChallengeApp.swift in Sources */,
@@ -332,7 +355,6 @@
 				E45251872BB1C79700BA2965 /* GridCollectionView.swift in Sources */,
 				E4BD74B52BB00538007F8B73 /* PicsumPhotoListViewModel.swift in Sources */,
 				E4E1C6462BB0476D0007D889 /* NetworkErrorView.swift in Sources */,
-				E4691D102BB19EC5009272B0 /* RefreshableScrollView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -342,6 +364,8 @@
 			files = (
 				E4208D9E2BB022FC00765069 /* PicsumAPITests.swift in Sources */,
 				E4691D042BB04ACF009272B0 /* PicsumPhotoListViewModelTests.swift in Sources */,
+				E4C605B02BB219C2003FFA2D /* ImageLoaderTests.swift in Sources */,
+				E4C605AE2BB2112E003FFA2D /* AsyncImageViewModelTests.swift in Sources */,
 				E4208D9C2BB0224500765069 /* XCTestCase+MockData.swift in Sources */,
 				E4E5E8492BB01402007B04C2 /* PicsumModelTests.swift in Sources */,
 			);
@@ -484,7 +508,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"SKTChallenge/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"SKTChallenge/Resources/Preview Content\"";
 				DEVELOPMENT_TEAM = PXLT5YXWCM;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -514,7 +538,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"SKTChallenge/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"SKTChallenge/Resources/Preview Content\"";
 				DEVELOPMENT_TEAM = PXLT5YXWCM;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;

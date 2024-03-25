@@ -173,38 +173,34 @@ class ImageCell: UICollectionViewCell {
         super.prepareForReuse()
         imageView.image = nil
         imageURL = nil
+        retryButton.isHidden = true
         activityIndicator.stopAnimating()
     }
 
     func configure(with image: PicsumImage) {
-        loadImageAsync(imageURL: image.downloadURL)
+        Task { await load(imageURL: image.downloadURL) }
     }
 
-    private func loadImageAsync(imageURL: URL) {
+    private func load(imageURL: URL) async {
+        defer { activityIndicator.stopAnimating() }
 
         self.imageURL = imageURL
+
         activityIndicator.startAnimating()
 
-        Task { [weak self] in
-            do {
-                let (data, _) = try await URLSession.shared.data(from: imageURL)
-                guard let image = UIImage(data: data), self?.imageURL == imageURL else {
-                    await MainActor.run { self?.retryButton.isHidden = true }
-                    return
-                }
-                await MainActor.run { self?.imageView.image = image }
-            } catch {
-                await MainActor.run { self?.retryButton.isHidden = false }
-            }
-
-            await MainActor.run { self?.activityIndicator.stopAnimating() }
+        guard let (url, image) = await ImageLoader.shared.loadImage(from: imageURL) else {
+            retryButton.isHidden = false
+            return
         }
+
+        guard self.imageURL == url else  { return }
+        imageView.image = image
     }
 
     @objc
     private func handleRetry() {
         guard let url = imageURL else { return }
         retryButton.isHidden = true
-        loadImageAsync(imageURL: url)
+        Task { await load(imageURL: url) }
     }
 }
