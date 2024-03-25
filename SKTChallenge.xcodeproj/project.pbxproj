@@ -145,12 +145,11 @@
 		E4BD747D2BAFF6ED007F8B73 /* SKTChallenge */ = {
 			isa = PBXGroup;
 			children = (
+				E4C605A92BB20799003FFA2D /* Resources */,
 				E4BD74B02BB004E2007F8B73 /* View */,
 				E4BD74AB2BAFFFA0007F8B73 /* Model */,
 				E4BD74A82BAFFEE3007F8B73 /* Netowork */,
 				E4BD747E2BAFF6ED007F8B73 /* SKTChallengeApp.swift */,
-				E4BD74822BAFF6ED007F8B73 /* Assets.xcassets */,
-				E4BD74842BAFF6EE007F8B73 /* Preview Content */,
 			);
 			path = SKTChallenge;
 			sourceTree = "<group>";
@@ -217,6 +216,15 @@
 				E4208D9D2BB022FC00765069 /* PicsumAPITests.swift */,
 			);
 			path = PicsumNetworkServiceTests;
+			sourceTree = "<group>";
+		};
+		E4C605A92BB20799003FFA2D /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				E4BD74822BAFF6ED007F8B73 /* Assets.xcassets */,
+				E4BD74842BAFF6EE007F8B73 /* Preview Content */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -484,7 +492,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"SKTChallenge/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"SKTChallenge/Resources/Preview Content\"";
 				DEVELOPMENT_TEAM = PXLT5YXWCM;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -514,7 +522,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"SKTChallenge/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"SKTChallenge/Resources/Preview Content\"";
 				DEVELOPMENT_TEAM = PXLT5YXWCM;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
