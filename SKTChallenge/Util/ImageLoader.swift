@@ -16,14 +16,32 @@ actor ImageLoader: ImageLoaderProtocol {
 
     static let shared = ImageLoader()
 
-    func loadImage(from url: URL) async -> (URL, UIImage)? {
+    private let urlSession: URLSession
+    private let urlCache: URLCache
 
-        do {
-            let (data, _) = try await URLSession.shared.data(from: url)
-            guard let image = UIImage(data: data) else { return nil }
+    init(urlCache: URLCache = URLCache(memoryCapacity: 100 * 1024 * 1024, diskCapacity: 500 * 1024 * 1024, diskPath: "imageCache")) {
+        let sessionConfig = URLSessionConfiguration.default
+        sessionConfig.urlCache = urlCache
+        self.urlCache = urlCache
+        self.urlSession = URLSession(configuration: sessionConfig)
+    }
+
+    func loadImage(from url: URL) async -> (URL, UIImage)? {
+        let request = URLRequest(url: url, cachePolicy: .returnCacheDataElseLoad, timeoutInterval: 60)
+
+        if let cachedResponse = urlCache.cachedResponse(for: request),
+           let image = UIImage(data: cachedResponse.data) {
             return (url, image)
-        } catch {
-            return nil
+        } else {
+            do {
+                let (data, response) = try await urlSession.data(for: request)
+                let cachedResponse = CachedURLResponse(response: response, data: data)
+                urlCache.storeCachedResponse(cachedResponse, for: request)
+                guard let image = UIImage(data: data) else { return nil }
+                return (url, image)
+            } catch {
+                return nil
+            }
         }
     }
 }
