@@ -101,18 +101,10 @@
 		E45251822BB1BC0600BA2965 /* PhotoListView */ = {
 			isa = PBXGroup;
 			children = (
-				E45251852BB1C76100BA2965 /* GridCollectionView */,
+				E45251862BB1C79700BA2965 /* GridCollectionView.swift */,
 				E45251832BB1BC1B00BA2965 /* PhotoListView.swift */,
 			);
 			path = PhotoListView;
-			sourceTree = "<group>";
-		};
-		E45251852BB1C76100BA2965 /* GridCollectionView */ = {
-			isa = PBXGroup;
-			children = (
-				E45251862BB1C79700BA2965 /* GridCollectionView.swift */,
-			);
-			path = GridCollectionView;
 			sourceTree = "<group>";
 		};
 		E4691D022BB04AB7009272B0 /* ViewModelTests */ = {

@@ -15,25 +15,33 @@ struct GridCollectionView: UIViewRepresentable {
     let refreshAction: () async -> Void
     let imageTapAction: (PicsumImage) -> Void
 
+    enum SectionKind {
+        case photoList
+    }
+
+    typealias DataSource = UICollectionViewDiffableDataSource<SectionKind, PicsumImage>
+    typealias Snapshot = NSDiffableDataSourceSnapshot<SectionKind, PicsumImage>
+
     func makeUIView(context: Context) -> UICollectionView {
         let layout = createCompositionalLayout()
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.backgroundColor = .clear
         collectionView.register(ImageCell.self, forCellWithReuseIdentifier: ImageCell.reuseIdentifier)
-
-        collectionView.dataSource = context.coordinator
         collectionView.delegate = context.coordinator
 
         let refreshControl = UIRefreshControl()
         refreshControl.addTarget(context.coordinator, action: #selector(Coordinator.handleRefresh(_:)), for: .valueChanged)
         collectionView.refreshControl = refreshControl
 
+        context.coordinator.configureDataSource(for: collectionView)
         return collectionView
     }
 
     func updateUIView(_ uiView: UICollectionView, context: Context) {
-        context.coordinator.imageList = imageList
-        uiView.reloadData()
+        var snapshot = Snapshot()
+        snapshot.appendSections([.photoList])
+        snapshot.appendItems(imageList, toSection: .photoList)
+        context.coordinator.dataSource?.apply(snapshot, animatingDifferences: false)
     }
 
     func makeCoordinator() -> Coordinator {
@@ -45,15 +53,16 @@ struct GridCollectionView: UIViewRepresentable {
         )
     }
 
-    class Coordinator: NSObject, UICollectionViewDataSource, UICollectionViewDelegate {
+    class Coordinator: NSObject, UICollectionViewDelegate {
 
         private let parent: GridCollectionView
+
         private let fetchMoreAction: () -> Void
         private let refreshAction: () async -> Void
         private let imageTapAction: (PicsumImage) -> Void
         private var isRefreshing = false
 
-        var imageList: [PicsumImage]
+        var dataSource: DataSource?
 
         init(
             _ parent: GridCollectionView,
@@ -62,10 +71,25 @@ struct GridCollectionView: UIViewRepresentable {
             imageTapAction: @escaping (PicsumImage) -> Void
         ) {
             self.parent = parent
-            self.imageList = parent.imageList
             self.fetchMoreAction = fetchMoreAction
             self.refreshAction = refreshAction
             self.imageTapAction = imageTapAction
+        }
+
+        func configureDataSource(for collectionView: UICollectionView) {
+            dataSource = DataSource(collectionView: collectionView) {
+                (collectionView, indexPath, image) -> UICollectionViewCell? in
+                let cell = collectionView.dequeueReusableCell(
+                    withReuseIdentifier: ImageCell.reuseIdentifier,
+                    for: indexPath) as? ImageCell
+                cell?.configure(with: image)
+                return cell
+            }
+
+            var snapshot = Snapshot()
+            snapshot.appendSections([.photoList])
+            snapshot.appendItems(parent.imageList)
+            dataSource?.apply(snapshot, animatingDifferences: false)
         }
 
         @objc
@@ -82,23 +106,15 @@ struct GridCollectionView: UIViewRepresentable {
             }
         }
 
-        func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-            imageList.count
-        }
-
-        func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-            let imageCell = collectionView.dequeueReusableCell(withReuseIdentifier: ImageCell.reuseIdentifier, for: indexPath) as! ImageCell
-            imageCell.configure(with: imageList[indexPath.row])
-            return imageCell
-        }
-
         func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-            guard indexPath.row == imageList.count - 1 else { return }
+            guard let count = dataSource?.snapshot(for: .photoList).items.count, count - 1 == indexPath.row else { return }
             fetchMoreAction()
         }
 
+
         func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-            imageTapAction(imageList[indexPath.row])
+            guard let items = dataSource?.snapshot(for: .photoList).items else { return }
+            imageTapAction(items[indexPath.row])
         }
     }
 
@@ -144,9 +160,7 @@ class ImageCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
 
-        imageView.contentMode = .scaleAspectFill
-        imageView.clipsToBounds = true
-        imageView.layer.cornerRadius = 8
+        imageView.contentMode = .scaleAspectFit
         contentView.addSubview(imageView)
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.backgroundColor = .clear
