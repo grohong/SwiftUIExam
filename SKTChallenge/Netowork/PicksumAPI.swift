@@ -10,7 +10,7 @@ import Foundation
 enum PicsumAPI {
 
     case list(page: Int, limit: Int)
-    case detail(id: Int)
+    case detail(id: String)
 
     var baseURL: URL? {
         return URL(string: "https://picsum.photos")

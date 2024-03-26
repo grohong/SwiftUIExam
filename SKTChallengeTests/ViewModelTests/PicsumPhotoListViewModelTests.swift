@@ -109,7 +109,7 @@ class MockNetworkService: PicsumNetworkServiceProtocol {
         return fetchedImageList
     }
 
-    func fetchImageDetail(id: Int) async throws -> PicsumImage {
+    func fetchImageDetail(id: String) async throws -> PicsumImage {
         guard shouldReturnError == false else { throw MockError.testError }
         return fetchedImage
     }

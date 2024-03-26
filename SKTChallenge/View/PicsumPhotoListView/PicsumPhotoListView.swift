@@ -64,10 +64,9 @@ struct PicsumPhotoListView: View {
                 }
             }
             .navigationTitle(Constants.navigationTitle)
-            .sheet(item: $selectedImage) { _ in PicsumPhotoView() }
-        }
-        .onAppear {
-            Task { await viewModel.fetchImageList() }
+            .sheet(item: $selectedImage) { image in
+                PicsumPhotoView(viewModel: PicsumPhotoViewModel(id: image.id)) 
+            }
         }
     }
 
