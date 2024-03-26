@@ -10,7 +10,7 @@ import Foundation
 protocol PicsumNetworkServiceProtocol {
 
     func fetchImageList(page: Int, limit: Int) async throws -> [PicsumImage]
-    func fetchImageDetail(id: Int) async throws -> PicsumImage
+    func fetchImageDetail(id: String) async throws -> PicsumImage
 }
 
 actor PicsumNetworkService: PicsumNetworkServiceProtocol {
@@ -33,7 +33,7 @@ actor PicsumNetworkService: PicsumNetworkServiceProtocol {
         }
     }
 
-    func fetchImageDetail(id: Int) async throws -> PicsumImage {
+    func fetchImageDetail(id: String) async throws -> PicsumImage {
         guard let imageDetailURL = PicsumAPI.detail(id: id).url else { throw URLError(.badURL) }
 
         let (data, response) = try await URLSession.shared.data(from: imageDetailURL)

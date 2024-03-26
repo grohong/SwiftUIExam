@@ -11,10 +11,9 @@ import Combine
 class PicsumPhotoListViewModel: ObservableObject {
 
     @Published var filteredImageList = [PicsumImage]()
-
     @Published var errorMessage: String?
 
-    @Published var isFetchLoading = false
+    @Published var isFetchLoading = true
     @Published var isFetchMoreLoading = false
 
     @Published var authorList = [String]()
@@ -54,11 +53,16 @@ class PicsumPhotoListViewModel: ObservableObject {
             .map { Array(Set($0)).sorted() }
             .assign(to: \.authorList, on: self)
             .store(in: &cancellables)
+
+        Task { await fetchImageList() }
     }
 
     func fetchImageList() async {
         guard imageList.isEmpty == true else { return }
-        await MainActor.run { isFetchLoading = true }
+        await MainActor.run {
+            isFetchLoading = true
+            errorMessage = nil
+        }
 
         do {
             let startIndex = startIndex
