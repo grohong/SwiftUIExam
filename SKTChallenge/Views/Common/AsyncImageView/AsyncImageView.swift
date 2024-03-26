@@ -22,12 +22,11 @@ struct AsyncImageView: View {
         case .success(let image):
             image.resizable()
                 .aspectRatio(contentMode: .fit)
-                .cornerRadius(8)
         case .failed:
             ZStack {
                 Rectangle()
                     .fill(.gray)
-                    .cornerRadius(8)
+
                 Button(action: {
                     Task { await viewModel.loadImage() }
                 }) {

@@ -49,7 +49,12 @@ struct PhotoListView: View {
                         spacing: Constants.gridSpacing
                     ) {
                         ForEach(imageList) { image in
-                            AsyncImageView(viewModel: .init(url: image.downloadURL))
+                            AsyncImageView(
+                                viewModel: .init(
+                                    url: image.downloadURL,
+                                    loadKind: .resizeWidth(width: itemWidth)
+                                )
+                            )
                             .frame(width: itemWidth, height: itemWidth * Constants.gridCellRatio)
                             .onAppear {
                                 if image == imageList.last {
