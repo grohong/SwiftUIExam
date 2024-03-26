@@ -12,10 +12,11 @@ class PicsumPhotoListViewModelTests: XCTestCase {
 
     override func setUpWithError() throws {
         do {
-            let mockData = try loadTestData()
+            let mockData = try loadMockData(file: .imageList)
             let mockImageList = try JSONDecoder().decode([PicsumImage].self, from: mockData)
+            self.mockNetworkService = MockNetworkService()
+            self.mockNetworkService.fetchedImageList = mockImageList
             self.mockImageList = mockImageList
-            self.mockNetworkService = MockNetworkService(fetchedImageList: mockImageList)
             self.viewModel = PicsumPhotoListViewModel(networkService: mockNetworkService)
         } catch {
             throw XCTSkip("목 데이터를 찾지 못했습니다: \(error.localizedDescription)")
@@ -80,7 +81,7 @@ class PicsumPhotoListViewModelTests: XCTestCase {
         await viewModel.fetchImageList()
         let originImageListCount = viewModel.imageList.count
 
-        let mockData = try loadFetchMoreTestData()
+        let mockData = try loadMockData(file: .fetchMoreImageList)
         let mockImageList = try JSONDecoder().decode([PicsumImage].self, from: mockData)
         mockNetworkService.fetchedImageList = mockImageList
 
@@ -92,22 +93,24 @@ class PicsumPhotoListViewModelTests: XCTestCase {
 class MockNetworkService: PicsumNetworkServiceProtocol {
 
     var shouldReturnError = false
-    var fetchedImageList: [PicsumImage]
+    var fetchedImageList: [PicsumImage]!
+    var fetchedImage: PicsumImage!
 
     enum MockError: Error {
         case testError
     }
 
-    init(
-        shouldReturnError: Bool = false,
-        fetchedImageList: [PicsumImage]
-    ) {
+    init( shouldReturnError: Bool = false) {
         self.shouldReturnError = shouldReturnError
-        self.fetchedImageList = fetchedImageList
     }
 
     func fetchImageList(page: Int, limit: Int) async throws -> [PicsumImage] {
         guard shouldReturnError == false else { throw MockError.testError }
         return fetchedImageList
+    }
+
+    func fetchImageDetail(id: Int) async throws -> PicsumImage {
+        guard shouldReturnError == false else { throw MockError.testError }
+        return fetchedImage
     }
 }

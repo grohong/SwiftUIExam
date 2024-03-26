@@ -10,20 +10,21 @@ import XCTest
 
 class PicsumModelTests: XCTestCase {
 
-    override func setUpWithError() throws {
+    func testImageListMockData() throws {
         do {
-            mockData = try loadTestData()
+            let data = try loadMockData(file: .imageList)
+            let imageList = try JSONDecoder().decode([PicsumImage].self, from: data)
+            XCTAssertGreaterThan(imageList.count, 0)
         } catch {
-            throw XCTSkip("목 데이터를 찾지 못했습니다: \(error.localizedDescription)")
+            XCTFail("디코딩 실패 : \(error)")
         }
     }
 
-    var mockData = Data()
-
-    func testDecodePicsumModel() throws {
+    func testImageMockData() throws {
         do {
-            let images = try JSONDecoder().decode([PicsumImage].self, from: mockData)
-            XCTAssertGreaterThan(images.count, 0)
+            let data = try loadMockData(file: .image)
+            let image = try JSONDecoder().decode(PicsumImage.self, from: data)
+            XCTAssertEqual(image.id, "0")
         } catch {
             XCTFail("디코딩 실패 : \(error)")
         }

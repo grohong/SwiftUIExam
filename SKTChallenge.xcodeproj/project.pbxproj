@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E40E57462BB2F4A0008D1156 /* PicsumImageMock.json in Resources */ = {isa = PBXBuildFile; fileRef = E40E57452BB2F4A0008D1156 /* PicsumImageMock.json */; };
 		E4208D9C2BB0224500765069 /* XCTestCase+MockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4208D9B2BB0224500765069 /* XCTestCase+MockData.swift */; };
 		E4208D9E2BB022FC00765069 /* PicsumAPITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4208D9D2BB022FC00765069 /* PicsumAPITests.swift */; };
 		E45251842BB1BC1B00BA2965 /* PhotoListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E45251832BB1BC1B00BA2965 /* PhotoListView.swift */; };
@@ -44,6 +45,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		E40E57452BB2F4A0008D1156 /* PicsumImageMock.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = PicsumImageMock.json; sourceTree = "<group>"; };
 		E4208D9B2BB0224500765069 /* XCTestCase+MockData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+MockData.swift"; sourceTree = "<group>"; };
 		E4208D9D2BB022FC00765069 /* PicsumAPITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PicsumAPITests.swift; sourceTree = "<group>"; };
 		E45251832BB1BC1B00BA2965 /* PhotoListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoListView.swift; sourceTree = "<group>"; };
@@ -233,6 +235,7 @@
 		E4BD74B82BB00E81007F8B73 /* PicsumNetworkServiceTests */ = {
 			isa = PBXGroup;
 			children = (
+				E40E57452BB2F4A0008D1156 /* PicsumImageMock.json */,
 				E49DB1D72BB28F7A004B8043 /* FetchMoreImageListMock.json */,
 				E4E5E8452BB010CB007B04C2 /* ImageListMock.json */,
 				E4E5E8482BB01402007B04C2 /* PicsumModelTests.swift */,
@@ -349,6 +352,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E40E57462BB2F4A0008D1156 /* PicsumImageMock.json in Resources */,
 				E4E5E8462BB010CB007B04C2 /* ImageListMock.json in Resources */,
 				E49DB1D82BB28F7A004B8043 /* FetchMoreImageListMock.json in Resources */,
 			);
