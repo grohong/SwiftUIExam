@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct PicsumImage: Codable {
+struct PicsumImage: Identifiable, Equatable, Codable {
 
     let id: String
     let author: String
@@ -23,5 +23,17 @@ struct PicsumImage: Codable {
         case height
         case imageURL = "url"
         case downloadURL = "download_url"
+    }
+}
+
+extension Array where Element: Identifiable {
+
+    var uniqueIdArray: [Element] {
+        var seenIDs = Set<Element.ID>()
+        return filter { element in
+            guard seenIDs.contains(element.id) == false else { return false }
+            seenIDs.insert(element.id)
+            return true
+        }
     }
 }
