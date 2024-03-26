@@ -24,6 +24,7 @@ class PicsumPhotoListViewModel: ObservableObject {
 
     private let networkService: PicsumNetworkServiceProtocol
     private var currentPage: Int = 1
+    private var picsumImageIdSet = Set<String>()
 
     private var startIndex: Int { Int.random(in: 1...10) }
 
@@ -61,9 +62,10 @@ class PicsumPhotoListViewModel: ObservableObject {
 
         do {
             let startIndex = startIndex
-            let fetchedImageList = try await networkService.fetchImageList(page: startIndex, limit: 10)
+            let fetchedImageList = try await networkService.fetchImageList(page: startIndex, limit: 10).uniqueIdArray
             currentPage = startIndex
-            await MainActor.run { imageList = fetchedImageList.uniqueIdArray }
+            picsumImageIdSet = Set(fetchedImageList.map(\.id))
+            await MainActor.run { imageList = fetchedImageList }
         } catch {
             await MainActor.run {
                 errorMessage = """
@@ -79,11 +81,12 @@ class PicsumPhotoListViewModel: ObservableObject {
     func refreshImageList() async {
         do {
             let startIndex = startIndex
-            let fetchedImageList = try await networkService.fetchImageList(page: startIndex, limit: 10)
+            let fetchedImageList = try await networkService.fetchImageList(page: startIndex, limit: 10).uniqueIdArray
             currentPage = startIndex
+            picsumImageIdSet = Set(fetchedImageList.map(\.id))
             await MainActor.run {
                 searchText = ""
-                imageList = fetchedImageList.uniqueIdArray
+                imageList = fetchedImageList
             }
         } catch { }
     }
@@ -93,10 +96,13 @@ class PicsumPhotoListViewModel: ObservableObject {
         await MainActor.run { isFetchMoreLoading = true }
 
         do {
-            let fetchedImageList = try await networkService.fetchImageList(page: currentPage + 1, limit: 10)
+            let fetchedImageList = try await networkService.fetchImageList(page: currentPage + 1, limit: 10).uniqueIdArray
             currentPage += 1
-            let uniqueNewImages = fetchedImageList.filter { Set(imageList.map(\.id)).contains($0.id) == false }
-            await MainActor.run { imageList.append(contentsOf: uniqueNewImages) }
+            let uniqueNewImages = fetchedImageList.filter { picsumImageIdSet.contains($0.id) == false }
+            if uniqueNewImages.isEmpty == false {
+                picsumImageIdSet.formUnion(uniqueNewImages.map(\.id)) // 중복되지 않는 새 이미지의 ID를 세트에 추가
+                await MainActor.run { imageList.append(contentsOf: uniqueNewImages) }
+            }
         } catch { }
 
         await MainActor.run { isFetchMoreLoading = false }
