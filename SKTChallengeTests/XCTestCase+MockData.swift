@@ -13,17 +13,27 @@ extension XCTestCase {
         case fileNotFound
     }
 
-     func loadTestData() throws -> Data {
-        guard let path = Bundle(for: type(of: self)).path(forResource: "ImageListMock", ofType: "json") else {
+    enum MockFileKind {
+        case imageList
+        case fetchMoreImageList
+        case image
+
+        var name: String {
+            switch self {
+            case .imageList:
+                return "ImageListMock"
+            case .fetchMoreImageList:
+                return "FetchMoreImageListMock"
+            case .image:
+                return "PicsumImageMock"
+            }
+        }
+    }
+
+    func loadMockData(file: MockFileKind) throws -> Data {
+        guard let path = Bundle(for: type(of: self)).path(forResource: file.name, ofType: "json") else {
             throw MockError.fileNotFound
         }
         return try Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe)
     }
-
-    func loadFetchMoreTestData() throws -> Data {
-       guard let path = Bundle(for: type(of: self)).path(forResource: "FetchMoreImageListMock", ofType: "json") else {
-           throw MockError.fileNotFound
-       }
-       return try Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe)
-   }
 }

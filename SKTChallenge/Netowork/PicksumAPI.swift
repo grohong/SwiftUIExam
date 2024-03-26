@@ -10,6 +10,7 @@ import Foundation
 enum PicsumAPI {
 
     case list(page: Int, limit: Int)
+    case detail(id: Int)
 
     var baseURL: URL? {
         return URL(string: "https://picsum.photos")
@@ -19,13 +20,15 @@ enum PicsumAPI {
         switch self {
         case .list:
             return "/v2/list"
+        case .detail(let id):
+            return "/id/\(id)/info"
         }
     }
 
     var url: URL? {
+        guard let baseURL else { return nil }
         switch self {
         case .list(let page, let limit):
-            guard let baseURL else { return nil }
             var components = URLComponents(
                 url: baseURL.appendingPathComponent(path),
                 resolvingAgainstBaseURL: false
@@ -35,6 +38,8 @@ enum PicsumAPI {
                 URLQueryItem(name: "limit", value: String(limit))
             ]
             return components?.url
+        case .detail:
+            return baseURL.appendingPathComponent(path)
         }
     }
 }
