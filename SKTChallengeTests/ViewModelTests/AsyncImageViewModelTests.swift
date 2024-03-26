@@ -13,23 +13,31 @@ class AsyncImageViewModelTests: XCTestCase {
     func testLoadImageSuccess() async {
         let mockImageLoader = MockImageLoader()
         mockImageLoader.mockImage = UIImage(systemName: "photo")!
-        let viewModel = AsyncImageViewModel(imageLoader: mockImageLoader)
-        
-        await viewModel.load(fromURL: URL(string: "https://picsum.photos/id/1/5000/3333")!)
+        let viewModel = AsyncImageViewModel(imageLoader: mockImageLoader, url: URL(string: "https://picsum.photos/id/1/5000/3333")!)
 
-        XCTAssertNotNil(viewModel.image)
-        XCTAssertFalse(viewModel.showRetryButton)
+        await viewModel.loadImage()
+
+        switch viewModel.state {
+        case .success(let image):
+            XCTAssertNotNil(image, "Image should be loaded successfully.")
+        default:
+            XCTFail("Image loading should be successful.")
+        }
     }
     
     func testLoadImageFailure() async {
         let mockImageLoader = MockImageLoader()
         mockImageLoader.mockImage = nil
-        let viewModel = AsyncImageViewModel(imageLoader: mockImageLoader)
-        
-        await viewModel.load(fromURL: URL(string: "https://picsum.photos/id/1/5000/3333")!)
+        let viewModel = AsyncImageViewModel(imageLoader: mockImageLoader, url: URL(string: "https://picsum.photos/id/1/5000/3333")!)
 
-        XCTAssertNil(viewModel.image)
-        XCTAssertTrue(viewModel.showRetryButton)
+        await viewModel.loadImage()
+
+        switch viewModel.state {
+        case .failed:
+            XCTAssertTrue(true)
+        default:
+            XCTFail()
+        }
     }
 }
 
