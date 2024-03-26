@@ -25,3 +25,15 @@ struct PicsumImage: Identifiable, Equatable, Codable {
         case downloadURL = "download_url"
     }
 }
+
+extension Array where Element: Identifiable {
+
+    var uniqueIdArray: [Element] {
+        var seenIDs = Set<Element.ID>()
+        return filter { element in
+            guard seenIDs.contains(element.id) == false else { return false }
+            seenIDs.insert(element.id)
+            return true
+        }
+    }
+}

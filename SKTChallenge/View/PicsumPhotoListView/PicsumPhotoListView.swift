@@ -10,9 +10,11 @@ import SwiftUI
 struct PicsumPhotoListView: View {
 
     @StateObject var viewModel: PicsumPhotoListViewModel
+    @State private var isShowingAutoComplete = false
 
     struct Constants {
         static let navigationTitle: String = "Lorem Picsum"
+        static let textfieldPlatceHolder: String = "author 검색"
     }
 
     var body: some View {
@@ -26,14 +28,37 @@ struct PicsumPhotoListView: View {
                         Task { await viewModel.fetchImageList() }
                     }
                 } else {
-                    PhotoListView(
-                        imageList: $viewModel.imageList,
-                        isFetchMoreLoading: $viewModel.isFetchMoreLoading,
-                        fetchMoreAction: {
-                            Task { await viewModel.fetchMoreImageList() }
-                        },
-                        refreshAction: { await viewModel.refreshImageList() }
-                    )
+                    VStack {
+                        TextField(
+                            Constants.textfieldPlatceHolder,
+                            text: $viewModel.searchText,
+                            onEditingChanged: { isEditing in
+                                isShowingAutoComplete = isEditing
+                            }
+                        )
+                        .textFieldStyle(RoundedBorderTextFieldStyle())
+                        .padding()
+
+                        if isShowingAutoComplete == true {
+                            List(viewModel.authorList, id: \.self) { author in
+                                AuthorItemView(author: author) {
+                                    viewModel.searchText = author
+                                    isShowingAutoComplete = false
+                                    hideKeyboard()
+                                }
+                            }
+                        } else {
+                            PhotoListView(
+                                imageList: $viewModel.filteredImageList,
+                                isFetchMoreLoading: $viewModel.isFetchMoreLoading,
+                                fetchMoreAction: {
+                                    guard viewModel.searchText.isEmpty == true else { return }
+                                    Task { await viewModel.fetchMoreImageList() }
+                                },
+                                refreshAction: { await viewModel.refreshImageList() }
+                            )
+                        }
+                    }
                 }
             }
             .navigationTitle(Constants.navigationTitle)
@@ -42,9 +67,12 @@ struct PicsumPhotoListView: View {
             Task { await viewModel.fetchImageList() }
         }
     }
+
+    private func hideKeyboard() {
+        UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+    }
 }
 
 #Preview {
     PicsumPhotoListView(viewModel: PicsumPhotoListViewModel())
 }
-

@@ -19,4 +19,11 @@ extension XCTestCase {
         }
         return try Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe)
     }
+
+    func loadFetchMoreTestData() throws -> Data {
+       guard let path = Bundle(for: type(of: self)).path(forResource: "FetchMoreImageListMock", ofType: "json") else {
+           throw MockError.fileNotFound
+       }
+       return try Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe)
+   }
 }
