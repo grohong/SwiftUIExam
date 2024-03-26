@@ -215,7 +215,7 @@ class ImageCell: UICollectionViewCell {
 
         activityIndicator.startAnimating()
 
-        guard let (url, image) = await ImageLoader.shared.loadImage(from: imageURL) else {
+        guard let (url, image) = await ImageLoader.shared.loadImage(from: imageURL, loadKind: .resizeWidth(width: bounds.width)) else {
             retryButton.isHidden = false
             return
         }

@@ -35,8 +35,13 @@ struct PicsumPhotoView: View {
                         let height = (screenWidth / CGFloat(image.width)) * CGFloat(image.height)
                         ScrollView {
                             VStack {
-                                AsyncImageView(viewModel: .init(url: image.downloadURL))
-                                    .frame(width: screenWidth, height: height)
+                                AsyncImageView(
+                                    viewModel: .init(
+                                        url: image.downloadURL,
+                                        loadKind: .origin
+                                    )
+                                )
+                                .frame(width: screenWidth, height: height)
 
                                 Text("Author: \(image.author)")
                                     .font(.title)

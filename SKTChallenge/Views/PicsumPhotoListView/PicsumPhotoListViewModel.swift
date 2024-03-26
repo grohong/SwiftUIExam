@@ -40,7 +40,6 @@ class PicsumPhotoListViewModel: ObservableObject {
             .removeDuplicates { previous, current in
                 previous == current
             }
-            .debounce(for: .seconds(0.3), scheduler: RunLoop.main)
             .assign(to: &$filteredImageList)
 
         $searchText
