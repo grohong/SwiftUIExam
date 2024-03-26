@@ -10,7 +10,7 @@ import SwiftUI
 struct AuthorItemView: View {
 
     let author: String
-    var onTap: () -> Void
+    var onTapAction: () -> Void
 
     var body: some View {
         HStack {
@@ -18,6 +18,6 @@ struct AuthorItemView: View {
             Spacer()
         }
         .contentShape(Rectangle())
-        .onTapGesture { onTap() }
+        .onTapGesture { onTapAction() }
     }
 }

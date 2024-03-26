@@ -28,4 +28,3 @@ class ImageLoaderTests: XCTestCase {
         XCTAssertNotNil(loadedImage)
     }
 }
-

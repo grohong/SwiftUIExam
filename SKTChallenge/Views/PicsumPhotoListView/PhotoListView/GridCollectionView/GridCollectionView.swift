@@ -217,4 +217,3 @@ class ImageCell: UICollectionViewCell {
         Task { await load(imageURL: url) }
     }
 }
-

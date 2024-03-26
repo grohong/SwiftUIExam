@@ -77,7 +77,7 @@ class PicsumPhotoListViewModelTests: XCTestCase {
         XCTAssertEqual(viewModel.searchText, "")
     }
 
-    func testfetchMoreImageList() async throws {
+    func testFetchMoreImageList() async throws {
         await viewModel.fetchImageList()
         let originImageListCount = viewModel.imageList.count
 
