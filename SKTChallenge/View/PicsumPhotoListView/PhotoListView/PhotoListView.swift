@@ -14,6 +14,7 @@ struct PhotoListView: View {
 
     private let fetchMoreAction: () -> Void
     private let refreshAction: () async -> Void
+    private let imageTapAction: (PicsumImage) -> Void
 
     struct Constants {
         static let gridSpacing: CGFloat = 20
@@ -26,12 +27,14 @@ struct PhotoListView: View {
         imageList: Binding<[PicsumImage]>,
         isFetchMoreLoading: Binding<Bool>,
         fetchMoreAction: @escaping () -> Void,
-        refreshAction: @escaping () async -> Void
+        refreshAction: @escaping () async -> Void,
+        imageTapAction: @escaping (PicsumImage) -> Void
     ) {
         self._imageList = imageList
         self._isFetchMoreLoading = isFetchMoreLoading
         self.fetchMoreAction = fetchMoreAction
         self.refreshAction = refreshAction
+        self.imageTapAction = imageTapAction
     }
 
     var body: some View {
@@ -55,6 +58,7 @@ struct PhotoListView: View {
                                     fetchMoreAction()
                                 }
                             }
+                            .onTapGesture { imageTapAction(image) }
                         }
                     }
                     .padding(.horizontal)
@@ -69,7 +73,8 @@ struct PhotoListView: View {
             GridCollectionView(
                 imageList: imageList,
                 fetchMoreAction: fetchMoreAction,
-                refreshAction: refreshAction
+                refreshAction: refreshAction,
+                imageTapAction: imageTapAction
             )
         }
     }

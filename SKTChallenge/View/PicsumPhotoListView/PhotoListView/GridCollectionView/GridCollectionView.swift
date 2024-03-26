@@ -13,6 +13,7 @@ struct GridCollectionView: UIViewRepresentable {
     let imageList: [PicsumImage]
     let fetchMoreAction: () -> Void
     let refreshAction: () async -> Void
+    let imageTapAction: (PicsumImage) -> Void
 
     func makeUIView(context: Context) -> UICollectionView {
         let layout = createCompositionalLayout()
@@ -36,7 +37,12 @@ struct GridCollectionView: UIViewRepresentable {
     }
 
     func makeCoordinator() -> Coordinator {
-        Coordinator(self, fetchMoreAction: fetchMoreAction, refreshAction: refreshAction)
+        Coordinator(
+            self,
+            fetchMoreAction: fetchMoreAction,
+            refreshAction: refreshAction,
+            imageTapAction: imageTapAction
+        )
     }
 
     class Coordinator: NSObject, UICollectionViewDataSource, UICollectionViewDelegate {
@@ -44,6 +50,7 @@ struct GridCollectionView: UIViewRepresentable {
         private let parent: GridCollectionView
         private let fetchMoreAction: () -> Void
         private let refreshAction: () async -> Void
+        private let imageTapAction: (PicsumImage) -> Void
         private var isRefreshing = false
 
         var imageList: [PicsumImage]
@@ -51,12 +58,14 @@ struct GridCollectionView: UIViewRepresentable {
         init(
             _ parent: GridCollectionView,
             fetchMoreAction: @escaping () -> Void,
-            refreshAction: @escaping () async -> Void
+            refreshAction: @escaping () async -> Void,
+            imageTapAction: @escaping (PicsumImage) -> Void
         ) {
             self.parent = parent
             self.imageList = parent.imageList
             self.fetchMoreAction = fetchMoreAction
             self.refreshAction = refreshAction
+            self.imageTapAction = imageTapAction
         }
 
         @objc
@@ -86,6 +95,10 @@ struct GridCollectionView: UIViewRepresentable {
         func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
             guard indexPath.row == imageList.count - 1 else { return }
             fetchMoreAction()
+        }
+
+        func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+            imageTapAction(imageList[indexPath.row])
         }
     }
 
@@ -204,3 +217,4 @@ class ImageCell: UICollectionViewCell {
         Task { await load(imageURL: url) }
     }
 }
+

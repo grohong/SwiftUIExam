@@ -11,6 +11,7 @@ struct PicsumPhotoListView: View {
 
     @StateObject var viewModel: PicsumPhotoListViewModel
     @State private var isShowingAutoComplete = false
+    @State private var selectedImage: PicsumImage?
 
     struct Constants {
         static let navigationTitle: String = "Lorem Picsum"
@@ -55,13 +56,15 @@ struct PicsumPhotoListView: View {
                                     guard viewModel.searchText.isEmpty == true else { return }
                                     Task { await viewModel.fetchMoreImageList() }
                                 },
-                                refreshAction: { await viewModel.refreshImageList() }
+                                refreshAction: { await viewModel.refreshImageList() },
+                                imageTapAction: { selectedImage = $0 }
                             )
                         }
                     }
                 }
             }
             .navigationTitle(Constants.navigationTitle)
+            .sheet(item: $selectedImage) { _ in PicsumPhotoView() }
         }
         .onAppear {
             Task { await viewModel.fetchImageList() }
