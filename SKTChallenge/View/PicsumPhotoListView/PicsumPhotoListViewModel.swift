@@ -6,22 +6,53 @@
 //
 
 import Foundation
+import Combine
 
 class PicsumPhotoListViewModel: ObservableObject {
 
-    @Published var imageList = [PicsumImage]()
+    @Published var filteredImageList = [PicsumImage]()
+
     @Published var errorMessage: String?
 
     @Published var isFetchLoading = false
     @Published var isFetchMoreLoading = false
+
+    @Published var authorList = [String]()
+    @Published var searchText = ""
+
+    @Published private(set) var imageList = [PicsumImage]()
 
     private let networkService: PicsumNetworkServiceProtocol
     private var currentPage: Int = 1
 
     private var startIndex: Int { Int.random(in: 1...10) }
 
+    private var cancellables = Set<AnyCancellable>()
+
     init(networkService: PicsumNetworkServiceProtocol = PicsumNetworkService.shared) {
         self.networkService = networkService
+
+        Publishers.CombineLatest($searchText, $imageList)
+            .map { searchText, imageList in
+                imageList
+                    .filter { searchText.isEmpty || $0.author.lowercased().contains(searchText.lowercased()) }
+            }
+            .removeDuplicates { previous, current in
+                previous == current
+            }
+            .debounce(for: .seconds(0.3), scheduler: RunLoop.main)
+            .assign(to: &$filteredImageList)
+
+        $searchText
+            .debounce(for: .seconds(0.3), scheduler: RunLoop.main)
+            .map { searchText in
+                self.imageList
+                    .filter { searchText.isEmpty || $0.author.lowercased().contains(searchText.lowercased()) }
+                    .map(\.author)
+            }
+            .map { Array(Set($0)).sorted() }
+            .assign(to: \.authorList, on: self)
+            .store(in: &cancellables)
     }
 
     func fetchImageList() async {
@@ -50,7 +81,10 @@ class PicsumPhotoListViewModel: ObservableObject {
             let startIndex = startIndex
             let fetchedImageList = try await networkService.fetchImageList(page: startIndex, limit: 10)
             currentPage = startIndex
-            await MainActor.run { imageList = fetchedImageList }
+            await MainActor.run {
+                searchText = ""
+                imageList = fetchedImageList
+            }
         } catch { }
     }
 

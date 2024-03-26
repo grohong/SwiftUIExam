@@ -28,6 +28,7 @@ struct AsyncImageView: View {
             } else if let image = viewModel.image {
                 image.resizable()
                     .aspectRatio(contentMode: .fit)
+                    .cornerRadius(8)
             } else if viewModel.showRetryButton {
                 Button(action: {
                     Task { await viewModel.load(fromURL: url) }

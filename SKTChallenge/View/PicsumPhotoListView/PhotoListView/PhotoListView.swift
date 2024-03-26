@@ -50,7 +50,6 @@ struct PhotoListView: View {
                                 url: image.downloadURL
                             )
                             .frame(width: itemWidth, height: itemWidth * Constants.gridCellRatio)
-                            .cornerRadius(8)
                             .onAppear {
                                 if image == imageList.last {
                                     fetchMoreAction()
