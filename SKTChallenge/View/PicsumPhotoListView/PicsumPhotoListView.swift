@@ -30,7 +30,7 @@ struct PicsumPhotoListView: View {
                 } else {
                     VStack {
                         TextField(
-                            "author 검색",
+                            Constants.textfieldPlatceHolder,
                             text: $viewModel.searchText,
                             onEditingChanged: { isEditing in
                                 isShowingAutoComplete = isEditing

@@ -14,6 +14,7 @@
 		E4691D042BB04ACF009272B0 /* PicsumPhotoListViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4691D032BB04ACF009272B0 /* PicsumPhotoListViewModelTests.swift */; };
 		E4691D072BB0DD34009272B0 /* AsyncImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4691D062BB0DD34009272B0 /* AsyncImageView.swift */; };
 		E4691D092BB0DD41009272B0 /* AsyncImageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4691D082BB0DD41009272B0 /* AsyncImageViewModel.swift */; };
+		E49DB1D82BB28F7A004B8043 /* FetchMoreImageListMock.json in Resources */ = {isa = PBXBuildFile; fileRef = E49DB1D72BB28F7A004B8043 /* FetchMoreImageListMock.json */; };
 		E4BD747F2BAFF6ED007F8B73 /* SKTChallengeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4BD747E2BAFF6ED007F8B73 /* SKTChallengeApp.swift */; };
 		E4BD74832BAFF6ED007F8B73 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E4BD74822BAFF6ED007F8B73 /* Assets.xcassets */; };
 		E4BD74862BAFF6EE007F8B73 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E4BD74852BAFF6EE007F8B73 /* Preview Assets.xcassets */; };
@@ -49,6 +50,7 @@
 		E4691D032BB04ACF009272B0 /* PicsumPhotoListViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PicsumPhotoListViewModelTests.swift; sourceTree = "<group>"; };
 		E4691D062BB0DD34009272B0 /* AsyncImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncImageView.swift; sourceTree = "<group>"; };
 		E4691D082BB0DD41009272B0 /* AsyncImageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncImageViewModel.swift; sourceTree = "<group>"; };
+		E49DB1D72BB28F7A004B8043 /* FetchMoreImageListMock.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = FetchMoreImageListMock.json; sourceTree = "<group>"; };
 		E4BD747B2BAFF6ED007F8B73 /* SKTChallenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SKTChallenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4BD747E2BAFF6ED007F8B73 /* SKTChallengeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKTChallengeApp.swift; sourceTree = "<group>"; };
 		E4BD74822BAFF6ED007F8B73 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -220,6 +222,7 @@
 		E4BD74B82BB00E81007F8B73 /* PicsumNetworkServiceTests */ = {
 			isa = PBXGroup;
 			children = (
+				E49DB1D72BB28F7A004B8043 /* FetchMoreImageListMock.json */,
 				E4E5E8452BB010CB007B04C2 /* ImageListMock.json */,
 				E4E5E8482BB01402007B04C2 /* PicsumModelTests.swift */,
 				E4208D9D2BB022FC00765069 /* PicsumAPITests.swift */,
@@ -336,6 +339,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E4E5E8462BB010CB007B04C2 /* ImageListMock.json in Resources */,
+				E49DB1D82BB28F7A004B8043 /* FetchMoreImageListMock.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

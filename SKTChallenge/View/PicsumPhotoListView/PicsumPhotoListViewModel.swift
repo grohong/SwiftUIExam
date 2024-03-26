@@ -63,7 +63,7 @@ class PicsumPhotoListViewModel: ObservableObject {
             let startIndex = startIndex
             let fetchedImageList = try await networkService.fetchImageList(page: startIndex, limit: 10)
             currentPage = startIndex
-            await MainActor.run { imageList = fetchedImageList }
+            await MainActor.run { imageList = fetchedImageList.uniqueIdArray }
         } catch {
             await MainActor.run {
                 errorMessage = """
@@ -83,7 +83,7 @@ class PicsumPhotoListViewModel: ObservableObject {
             currentPage = startIndex
             await MainActor.run {
                 searchText = ""
-                imageList = fetchedImageList
+                imageList = fetchedImageList.uniqueIdArray
             }
         } catch { }
     }
@@ -95,7 +95,8 @@ class PicsumPhotoListViewModel: ObservableObject {
         do {
             let fetchedImageList = try await networkService.fetchImageList(page: currentPage + 1, limit: 10)
             currentPage += 1
-            await MainActor.run { imageList.append(contentsOf: fetchedImageList) }
+            let uniqueNewImages = fetchedImageList.filter { Set(imageList.map(\.id)).contains($0.id) == false }
+            await MainActor.run { imageList.append(contentsOf: uniqueNewImages) }
         } catch { }
 
         await MainActor.run { isFetchMoreLoading = false }
