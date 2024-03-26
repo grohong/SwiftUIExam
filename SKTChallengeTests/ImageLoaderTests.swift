@@ -19,7 +19,7 @@ class ImageLoaderTests: XCTestCase {
         mockCache.storeCachedResponse(mockCachedResponse, for: URLRequest(url: imageURL))
 
         let imageLoader = ImageLoader(urlCache: mockCache)
-        guard let (loadedURL, loadedImage) = await imageLoader.loadImage(from: imageURL) else {
+        guard let (loadedURL, loadedImage) = await imageLoader.loadImage(from: imageURL, loadKind: .resizeWidth(width: .infinity)) else {
             XCTFail("캐쉬 실패")
             return
         }
