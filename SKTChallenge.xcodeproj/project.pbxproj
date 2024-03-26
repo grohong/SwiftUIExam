@@ -12,6 +12,7 @@
 		E4208D9E2BB022FC00765069 /* PicsumAPITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4208D9D2BB022FC00765069 /* PicsumAPITests.swift */; };
 		E45251842BB1BC1B00BA2965 /* PhotoListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E45251832BB1BC1B00BA2965 /* PhotoListView.swift */; };
 		E45251872BB1C79700BA2965 /* GridCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E45251862BB1C79700BA2965 /* GridCollectionView.swift */; };
+		E4622CC52BB31DF700D25815 /* MockNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4622CC42BB31DF700D25815 /* MockNetworkService.swift */; };
 		E4691D042BB04ACF009272B0 /* PicsumPhotoListViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4691D032BB04ACF009272B0 /* PicsumPhotoListViewModelTests.swift */; };
 		E4691D072BB0DD34009272B0 /* AsyncImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4691D062BB0DD34009272B0 /* AsyncImageView.swift */; };
 		E4691D092BB0DD41009272B0 /* AsyncImageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4691D082BB0DD41009272B0 /* AsyncImageViewModel.swift */; };
@@ -52,6 +53,7 @@
 		E4208D9D2BB022FC00765069 /* PicsumAPITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PicsumAPITests.swift; sourceTree = "<group>"; };
 		E45251832BB1BC1B00BA2965 /* PhotoListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoListView.swift; sourceTree = "<group>"; };
 		E45251862BB1C79700BA2965 /* GridCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridCollectionView.swift; sourceTree = "<group>"; };
+		E4622CC42BB31DF700D25815 /* MockNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockNetworkService.swift; sourceTree = "<group>"; };
 		E4691D032BB04ACF009272B0 /* PicsumPhotoListViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PicsumPhotoListViewModelTests.swift; sourceTree = "<group>"; };
 		E4691D062BB0DD34009272B0 /* AsyncImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncImageView.swift; sourceTree = "<group>"; };
 		E4691D082BB0DD41009272B0 /* AsyncImageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncImageViewModel.swift; sourceTree = "<group>"; };
@@ -246,6 +248,7 @@
 				E4E5E8452BB010CB007B04C2 /* ImageListMock.json */,
 				E4E5E8482BB01402007B04C2 /* PicsumModelTests.swift */,
 				E4208D9D2BB022FC00765069 /* PicsumAPITests.swift */,
+				E4622CC42BB31DF700D25815 /* MockNetworkService.swift */,
 			);
 			path = PicsumNetworkServiceTests;
 			sourceTree = "<group>";
@@ -393,6 +396,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E4622CC52BB31DF700D25815 /* MockNetworkService.swift in Sources */,
 				E4208D9E2BB022FC00765069 /* PicsumAPITests.swift in Sources */,
 				E4691D042BB04ACF009272B0 /* PicsumPhotoListViewModelTests.swift in Sources */,
 				E4C605B02BB219C2003FFA2D /* ImageLoaderTests.swift in Sources */,
