@@ -8,7 +8,8 @@
 import Foundation
 import Combine
 
-class PicsumPhotoListViewModel: ObservableObject {
+@MainActor
+final class PicsumPhotoListViewModel: ObservableObject {
 
     @Published var filteredImageList = [PicsumImage]()
     @Published var errorMessage: String?
@@ -68,17 +69,15 @@ class PicsumPhotoListViewModel: ObservableObject {
             let fetchedImageList = try await networkService.fetchImageList(page: startIndex, limit: 10).uniqueIdArray
             currentPage = startIndex
             picsumImageIdSet = Set(fetchedImageList.map(\.id))
-            await MainActor.run { imageList = fetchedImageList }
+            imageList = fetchedImageList
         } catch {
-            await MainActor.run {
-                errorMessage = """
-                이미지 리스트 API에서 오류가 발생했습니다.
-                다시 시도해주세요.
-                """
-            }
+            errorMessage = """
+            이미지 리스트 API에서 오류가 발생했습니다.
+            다시 시도해주세요.
+            """
         }
 
-        await MainActor.run { isFetchLoading = false }
+        isFetchLoading = false
     }
 
     func refreshImageList() async {
@@ -87,16 +86,15 @@ class PicsumPhotoListViewModel: ObservableObject {
             let fetchedImageList = try await networkService.fetchImageList(page: startIndex, limit: 10).uniqueIdArray
             currentPage = startIndex
             picsumImageIdSet = Set(fetchedImageList.map(\.id))
-            await MainActor.run {
-                searchText = ""
-                imageList = fetchedImageList
-            }
+
+            searchText = ""
+            imageList = fetchedImageList
         } catch { }
     }
 
     func fetchMoreImageList() async {
         guard isFetchMoreLoading == false else { return }
-        await MainActor.run { isFetchMoreLoading = true }
+        isFetchMoreLoading = true
 
         do {
             let fetchedImageList = try await networkService.fetchImageList(page: currentPage + 1, limit: 10).uniqueIdArray
@@ -104,10 +102,10 @@ class PicsumPhotoListViewModel: ObservableObject {
             let uniqueNewImages = fetchedImageList.filter { picsumImageIdSet.contains($0.id) == false }
             if uniqueNewImages.isEmpty == false {
                 picsumImageIdSet.formUnion(uniqueNewImages.map(\.id)) // 중복되지 않는 새 이미지의 ID를 세트에 추가
-                await MainActor.run { imageList.append(contentsOf: uniqueNewImages) }
+                imageList.append(contentsOf: uniqueNewImages)
             }
         } catch { }
 
-        await MainActor.run { isFetchMoreLoading = false }
+        isFetchMoreLoading = false
     }
 }

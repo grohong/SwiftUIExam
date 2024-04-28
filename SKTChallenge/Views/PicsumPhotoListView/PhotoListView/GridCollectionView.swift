@@ -118,6 +118,7 @@ struct GridCollectionView: UIViewRepresentable {
         }
     }
 
+    @MainActor
     func createCompositionalLayout() -> UICollectionViewCompositionalLayout {
         let layout = UICollectionViewCompositionalLayout { (sectionIndex: Int, layoutEnvironment: NSCollectionLayoutEnvironment) -> NSCollectionLayoutSection? in
 

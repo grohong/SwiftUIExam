@@ -7,7 +7,8 @@
 
 import Foundation
 
-class PicsumPhotoViewModel: ObservableObject {
+@MainActor
+final class PicsumPhotoViewModel: ObservableObject {
 
     enum State {
         case loading
@@ -30,22 +31,18 @@ class PicsumPhotoViewModel: ObservableObject {
     }
 
     func fetchImage() async {
-        await MainActor.run {
-            state = .loading
-        }
+        state = .loading
 
         do {
             let fetchedImage = try await networkService.fetchImageDetail(id: id)
-            await MainActor.run { state = .success(fetchedImage) }
+            state = .success(fetchedImage)
         } catch {
-            await MainActor.run {
-                state = .failed(
-                    """
-                    이미지 API에서 오류가 발생했습니다.
-                    다시 시도해주세요.
-                    """
-                )
-            }
+            state = .failed(
+                """
+                이미지 API에서 오류가 발생했습니다.
+                다시 시도해주세요.
+                """
+            )
         }
     }
 }
