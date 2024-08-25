@@ -13,11 +13,11 @@ class AsyncImageViewModelTests: XCTestCase {
     func testLoadCacheImageSuccess() async {
         let mockImageLoader = MockImageLoader()
         mockImageLoader.mockImage = UIImage(systemName: "photo")!
-        let viewModel = AsyncImageViewModel(imageLoader: mockImageLoader, url: URL(string: "https://picsum.photos/id/1/5000/3333")!, loadKind: .resizeWidth(width: .infinity))
+        let viewModel = await AsyncImageViewModel(imageLoader: mockImageLoader, url: URL(string: "https://picsum.photos/id/1/5000/3333")!, loadKind: .resizeWidth(width: .infinity))
 
         await viewModel.loadImage()
 
-        switch viewModel.state {
+        switch await viewModel.state {
         case .success:
             XCTAssertTrue(true)
         default:
@@ -28,11 +28,11 @@ class AsyncImageViewModelTests: XCTestCase {
     func testLoadCacheImageFailure() async {
         let mockImageLoader = MockImageLoader()
         mockImageLoader.mockImage = nil
-        let viewModel = AsyncImageViewModel(imageLoader: mockImageLoader, url: URL(string: "https://picsum.photos/id/1/5000/3333")!, loadKind: .resizeWidth(width: .infinity))
+        let viewModel = await AsyncImageViewModel(imageLoader: mockImageLoader, url: URL(string: "https://picsum.photos/id/1/5000/3333")!, loadKind: .resizeWidth(width: .infinity))
 
         await viewModel.loadImage()
 
-        switch viewModel.state {
+        switch await viewModel.state {
         case .failed:
             XCTAssertTrue(true)
         default:

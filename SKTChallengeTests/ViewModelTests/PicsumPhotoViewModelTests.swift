@@ -10,6 +10,7 @@ import XCTest
 
 class PicsumPhotoViewModelTests: XCTestCase {
 
+    @MainActor 
     override func setUpWithError() throws {
         do {
             let mockData = try loadMockData(file: .image)
@@ -30,7 +31,7 @@ class PicsumPhotoViewModelTests: XCTestCase {
 
     func testFetchImageSuccess() async {
         await viewModel.fetchImage()
-        switch viewModel.state {
+        switch await viewModel.state {
         case .success(let image):
             XCTAssertEqual(image, mockImage)
         default:
@@ -41,7 +42,7 @@ class PicsumPhotoViewModelTests: XCTestCase {
     func testLoadImageFailure() async {
         mockNetworkService.shouldReturnError = true
         await viewModel.fetchImage()
-        switch viewModel.state {
+        switch await viewModel.state {
         case .failed:
             XCTAssertTrue(true)
         default:

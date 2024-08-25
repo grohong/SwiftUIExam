@@ -7,7 +7,8 @@
 
 import SwiftUI
 
-class AsyncImageViewModel: ObservableObject {
+@MainActor
+final class AsyncImageViewModel: ObservableObject {
 
     enum State {
         case loading
@@ -33,13 +34,12 @@ class AsyncImageViewModel: ObservableObject {
     }
 
     func loadImage() async {
-
-        await MainActor.run { state = .loading }
+        state = .loading
 
         if let (_, uiImage) = await imageLoader.loadImage(from: url, loadKind: loadKind) {
-            await MainActor.run { state = .success(Image(uiImage: uiImage)) }
+            state = .success(Image(uiImage: uiImage))
         } else {
-            await MainActor.run { state = .failed }
+            state = .failed
         }
     }
 }

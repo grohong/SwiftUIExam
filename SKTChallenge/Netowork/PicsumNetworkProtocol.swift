@@ -13,7 +13,8 @@ protocol PicsumNetworkServiceProtocol {
     func fetchImageDetail(id: String) async throws -> PicsumImage
 }
 
-actor PicsumNetworkService: PicsumNetworkServiceProtocol {
+@globalActor
+final actor PicsumNetworkService: PicsumNetworkServiceProtocol {
 
     static let shared = PicsumNetworkService()
 

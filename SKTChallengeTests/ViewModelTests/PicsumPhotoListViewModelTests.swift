@@ -10,7 +10,7 @@ import XCTest
 
 class PicsumPhotoListViewModelTests: XCTestCase {
 
-    override func setUpWithError() throws {
+    @MainActor override func setUpWithError() throws {
         do {
             let mockData = try loadMockData(file: .imageList)
             let mockImageList = try JSONDecoder().decode([PicsumImage].self, from: mockData)
@@ -28,12 +28,14 @@ class PicsumPhotoListViewModelTests: XCTestCase {
 
     var viewModel: PicsumPhotoListViewModel!
 
+    @MainActor
     func testFetchImageListSuccess() async {
         await viewModel.fetchImageList()
         XCTAssertFalse(viewModel.imageList.isEmpty)
         XCTAssertTrue(viewModel.errorMessage == nil)
     }
 
+    @MainActor
     func testFetchImageListFailure() async {
         mockNetworkService.shouldReturnError = true
         await viewModel.fetchImageList()
@@ -41,11 +43,13 @@ class PicsumPhotoListViewModelTests: XCTestCase {
         XCTAssertNotNil(viewModel.errorMessage)
     }
 
+    @MainActor
     func testUniqueIdImageList() async {
         await viewModel.fetchImageList()
         XCTAssertNotEqual(viewModel.imageList.count, mockImageList.count)
     }
 
+    @MainActor
     func testAuthorList() async throws {
         await viewModel.fetchImageList()
         viewModel.searchText = "a"
@@ -57,18 +61,17 @@ class PicsumPhotoListViewModelTests: XCTestCase {
         XCTAssertFalse(viewModel.authorList.isEmpty)
     }
 
+    @MainActor
     func testFilteredImageList() async throws {
         await viewModel.fetchImageList()
         viewModel.searchText = "Alejandro"
-
-        // debounce 시간
-        try await Task.sleep(nanoseconds: 500_000_000)
 
         XCTAssertFalse(viewModel.imageList.isEmpty)
         XCTAssertFalse(viewModel.filteredImageList.isEmpty)
         XCTAssertNotEqual(viewModel.imageList.count, viewModel.filteredImageList.count)
     }
 
+    @MainActor
     func testRefreshImageList() async {
         await viewModel.fetchImageList()
         viewModel.searchText = "Alejandro"
@@ -77,6 +80,7 @@ class PicsumPhotoListViewModelTests: XCTestCase {
         XCTAssertEqual(viewModel.searchText, "")
     }
 
+    @MainActor
     func testFetchMoreImageList() async throws {
         await viewModel.fetchImageList()
         let originImageListCount = viewModel.imageList.count
